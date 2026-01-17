@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <title>workflow</title>
+
+  <script src="//unpkg.com/systemjs@0.19.47/dist/system.js"></script>
+</head>
+
+<body>
+  <div id="en-t" class="box">
+       <div id="logo">
+        work<span class="flow">FLOW</span>
+       </div>
+       <button class="but search">
+             <img src="icon/search.svg" class="icon">
+       </button>
+       <button class="but param">
+              <img src="icon/gear.png" class="icon">
+       </button>
+  </div>
+  <div id="container" class="box">
+     <div id="loader"></div>
+     <button id="exit">X</button></button>
+  </div>  
+  <div id="nav-b" class="box">
+       <button class="nav main" id="user-b">
+         <img src="icon/user.svg" class="icon main-icon">
+         <p>vous</p> 
+       </button>
+       <button class="nav main" id="fiche-b">
+         <img src="icon/book.svg"class="icon main-icon">   
+         <p>fiches</p>
+       </button>
+       <button class="nav main" id="exo-b">
+         <img src="icon/task-checklist.svg" class="icon main-icon">
+         <p>exo</p>
+       </button>
+  </div>
+  <script src="config.js"></script>
+  <script src="coeur.js"></script>
+  <script>
+    window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']]
+    }
+  };
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</body>
+</html>

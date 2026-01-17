@@ -1,0 +1,812 @@
+[{
+  "title": "Dérivées et variations de fonctions",
+  "id": "FICHE-FCT-01",
+  "matter": "Math",
+  "state": "0%",
+  "date": "10/01/2026",
+  "body": [
+    {
+      "head": "Introduction",
+      "body": "La dérivée d’une fonction permet d’étudier la manière dont une fonction varie. Elle est essentielle pour analyser les courbes, déterminer les variations et résoudre de nombreux problèmes."
+    },
+    {
+      "head": "Lien dérivée / variation",
+      "body": "Si f’(x) > 0 sur un intervalle, alors f est croissante.\nSi f’(x) < 0, f est décroissante.\nSi f’(x) = 0, f est constante."
+    },
+    {
+      "head": "Formules fondamentales",
+      "body": "Dérivée de x^n : n x^(n−1)\nDérivée de ax : a\nDérivée d’une constante : 0"
+    }
+  ],
+
+  "apply": [
+
+    {
+      "type": "QCM",
+      "text": "Quelle est la dérivée de 5x ?",
+      "propos": ["5", "x", "10x", "0"],
+      "res": "5"
+    },
+
+    {
+      "type": "QCM",
+      "text": "Quelle est la dérivée de x³ ?",
+      "propos": ["3x²", "x²", "3x", "x³"],
+      "res": "3x²"
+    },
+
+    {
+      "type": "alternatif",
+      "text": "Si la dérivée d’une fonction est positive sur un intervalle, alors la fonction est croissante sur cet intervalle.",
+      "res": "vrai"
+    },
+
+    {
+      "type": "alternatif",
+      "text": "La dérivée d’une constante est égale à 1.",
+      "res": "faux"
+    },
+
+    {
+      "type": "rearrangement",
+      "text": "Remets la phrase dans le bon ordre",
+      "propos": ["fonction", "croissante", "est", "la", "si", "dérivée", "positive"],
+      "res": "la fonction est croissante si dérivée positive"
+    },
+
+    {
+      "type": "QCM",
+      "text": "Quelle information donne la dérivée d’une fonction ?",
+      "propos": [
+        "La couleur de la courbe",
+        "La variation de la fonction",
+        "La valeur maximale",
+        "Le domaine de définition"
+      ],
+      "res": "La variation de la fonction"
+    },
+
+    {
+      "type": "APPAREIMENT",
+      "text": "Associe chaque fonction à sa dérivée",
+      "col_A": [
+        { "key": 1, "value": "x²" },
+        { "key": 2, "value": "7x" },
+        { "key": 3, "value": "4" }
+      ],
+      "col_B": [
+        { "key": 3, "value": "0" },
+        { "key": 1, "value": "2x" },
+        { "key": 2, "value": "7" }
+      ]
+    },
+
+    {
+      "type": "QCM",
+      "text": "Si f’(x) = 0 sur un intervalle, que peut-on dire de f ?",
+      "propos": [
+        "croissante",
+        "décroissante",
+        "constante",
+        "non définie"
+      ],
+      "res": "constante"
+    },
+
+    {
+      "type": "alternatif",
+      "text": "Une fonction peut avoir une dérivée négative sur tout son domaine.",
+      "res": "vrai"
+    },
+
+    {
+      "type": "QCM",
+      "text": "Quelle est la dérivée de 2x² ?",
+      "propos": ["4x", "2x", "x²", "0"],
+      "res": "4x"
+    },
+
+    {
+      "type": "rearrangement",
+      "text": "Remets les mots dans l’ordre",
+      "propos": ["dérivée", "variation", "fonction", "permet", "la"],
+      "res": "la dérivée permet la variation fonction"
+    },
+
+    {
+      "type": "alternatif",
+      "text": "La dérivée est utilisée pour étudier les extremums d’une fonction.",
+      "res": "vrai"
+    }
+
+  ]
+},
+{
+  "title": "Statistiques descriptives : moyenne, médiane et dispersion",
+  "id": "FICHE-STAT-02",
+  "matter": "Math",
+  "state": "0%",
+  "date": "10/01/2026",
+  "body": [
+    {
+      "head": "Introduction",
+      "body": "Les statistiques descriptives permettent d’analyser et de résumer un ensemble de données. Elles sont utilisées pour comprendre la répartition, la tendance centrale et la dispersion des valeurs."
+    },
+    {
+      "head": "Tendance centrale",
+      "body": "La moyenne représente la valeur moyenne des données.\nLa médiane est la valeur qui partage la série en deux parties égales.\nLe mode est la valeur la plus fréquente."
+    },
+    {
+      "head": "Dispersion",
+      "body": "L’étendue mesure l’écart entre la plus grande et la plus petite valeur.\nLa variance et l’écart-type mesurent la dispersion autour de la moyenne."
+    }
+  ],
+
+  "apply": [
+
+    {
+      "type": "QCM",
+      "text": "Quelle est la moyenne de la série : 2 ; 4 ; 6 ?",
+      "propos": ["4", "6", "3", "2"],
+      "res": "4"
+    },
+
+    {
+      "type": "QCM",
+      "text": "Quelle est la médiane de la série : 1 ; 3 ; 5 ; 7 ; 9 ?",
+      "propos": ["3", "5", "7", "1"],
+      "res": "5"
+    },
+
+    {
+      "type": "alternatif",
+      "text": "La médiane dépend des valeurs extrêmes de la série.",
+      "res": "faux"
+    },
+
+    {
+      "type": "QCM",
+      "text": "Quelle est l’étendue de la série : 4 ; 8 ; 10 ; 2 ?",
+      "propos": ["6", "8", "10", "12"],
+      "res": "8"
+    },
+
+    {
+      "type": "alternatif",
+      "text": "L’étendue est la différence entre la plus grande et la plus petite valeur.",
+      "res": "vrai"
+    },
+
+    {
+      "type": "rearrangement",
+      "text": "Remets la phrase dans le bon ordre",
+      "propos": ["plus", "valeur", "petite", "grande", "la", "moins", "étendue"],
+      "res": "étendue grande valeur moins petite valeur"
+    },
+
+    {
+      "type": "QCM",
+      "text": "Le mode d’une série est :",
+      "propos": [
+        "La valeur moyenne",
+        "La valeur centrale",
+        "La valeur la plus fréquente",
+        "La plus grande valeur"
+      ],
+      "res": "La valeur la plus fréquente"
+    },
+
+    {
+      "type": "APPAREIMENT",
+      "text": "Associe chaque notion à sa définition",
+      "col_A": [
+        { "key": 1, "value": "Moyenne" },
+        { "key": 2, "value": "Médiane" },
+        { "key": 3, "value": "Étendue" }
+      ],
+      "col_B": [
+        { "key": 3, "value": "Différence max - min" },
+        { "key": 1, "value": "Somme des valeurs divisée par l’effectif" },
+        { "key": 2, "value": "Valeur centrale ordonnée" }
+      ]
+    },
+
+    {
+      "type": "alternatif",
+      "text": "Une série peut avoir plusieurs modes.",
+      "res": "vrai"
+    },
+
+    {
+      "type": "QCM",
+      "text": "Si toutes les valeurs d’une série sont égales, alors l’écart-type est :",
+      "propos": ["0", "1", "égal à la moyenne", "indéfini"],
+      "res": "0"
+    },
+
+    {
+      "type": "rearrangement",
+      "text": "Remets les mots dans l’ordre",
+      "propos": ["statistiques", "décrire", "données", "permettent", "les"],
+      "res": "les statistiques permettent décrire données"
+    },
+
+    {
+      "type": "alternatif",
+      "text": "La moyenne est toujours égale à la médiane.",
+      "res": "faux"
+    }
+
+  ]
+},
+{
+  "title": "Nombres complexes : notions et opérations",
+  "id": "FICHE-COMPL-03",
+  "matter": "Math",
+  "state": "0%",
+  "date": "10/01/2026",
+  "body": [
+    {
+      "head": "Introduction",
+      "body": "Les nombres complexes permettent de résoudre des équations qui n'ont pas de solution dans les réels. Ils s'écrivent sous la forme z = a + bi avec i² = -1."
+    },
+    {
+      "head": "Parties réelles et imaginaires",
+      "body": "Dans z = a + bi, a est la partie réelle et b la partie imaginaire. Elles permettent de représenter le nombre complexe dans le plan complexe."
+    },
+    {
+      "head": "Opérations",
+      "body": "On peut additionner, soustraire, multiplier et diviser les nombres complexes. Le conjugué d'un nombre complexe z = a + bi est a - bi."
+    }
+  ],
+
+  "apply": [
+
+    {
+      "type": "QCM",
+      "text": "Le conjugué de 3 + 2i est :",
+      "propos": ["3-2i", "-3+2i", "2+3i", "3+2i"],
+      "res": "3-2i"
+    },
+
+    {
+      "type": "QCM",
+      "text": "z = 1 + i est réel ou imaginaire ?",
+      "propos": ["réel", "imaginaire", "complexe", "aucun"],
+      "res": "complexe"
+    },
+
+    {
+      "type": "QCM",
+      "text": "2 + 3i + 1 - i = ?",
+      "propos": ["3+2i", "3+4i", "1+4i", "2+2i"],
+      "res": "3+2i"
+    },
+
+    {
+      "type": "alternatif",
+      "text": "i² = -1",
+      "res": "vrai"
+    },
+
+    {
+      "type": "rearrangement",
+      "text": "Remets en ordre",
+      "propos": ["partie", "imaginaire", "a", "b", "réelle", "z", "+", "i"],
+      "res": "z = a + b i partie réelle partie imaginaire"
+    },
+
+    {
+      "type": "APPAREIMENT",
+      "text": "Associe chaque opération à sa règle",
+      "col_A": [
+        { "key": 1, "value": "somme" },
+        { "key": 2, "value": "produit" },
+        { "key": 3, "value": "Conjugué" }
+      ],
+      "col_B": [
+        { "key": 2, "value": "ai*ib=-ab" },
+        { "key": 1, "value": "a+bi= a+bi" },
+        { "key": 3, "value": "a+bi → a-bi" }
+      ]
+    },
+
+    {
+      "type": "QCM",
+      "text": "Le conjugué de 5 - 4i est :",
+      "propos": ["5+4i", "5-4i", "-5+4i", "-5-4i"],
+      "res": "5+4i"
+    },
+
+    {
+      "type": "QCM",
+      "text": "Re(z) pour z = 7 - 3i ?",
+      "propos": ["7", "-3", "10", "aucun"],
+      "res": "7"
+    },
+
+    {
+      "type": "QCM",
+      "text": "Im(z) pour z = 2 + 6i ?",
+      "propos": ["6", "2", "-6", "8"],
+      "res": "6"
+    },
+
+    {
+      "type": "alternatif",
+      "text": "Additionner deux nombres complexes donne un nombre réel.",
+      "res": "faux"
+    },
+
+    {
+      "type": "rearrangement",
+      "text": "Forme standard",
+      "propos": ["z", "=", "a", "+", "b", "i"],
+      "res": "z = a + b i"
+    },
+
+    {
+      "type": "QCM",
+      "text": "Multiplication par le conjugué permet de :",
+      "propos": ["simplifier", "complexifier", "changer le signe", "rien"],
+      "res": "simplifier"
+    },
+
+    {
+      "type": "QCM",
+      "text": "Le nombre i est :",
+      "propos": ["réel", "imaginaire pur", "complexe", "nul"],
+      "res": "imaginaire pur"
+    }
+
+  ]
+},
+{
+  "title": "Analyse : dérivées avancées",
+  "id": "FICHE-ANAL-04",
+  "matter": "Math",
+  "state": "0%",
+  "date": "10/01/2026",
+  "body": [
+    {
+      "head": "Fonctions composées",
+      "body": "La dérivée d'une fonction composée f(g(x)) s'obtient avec la formule f'(g(x))*g'(x)."
+    },
+    {
+      "head": "Dérivées usuelles",
+      "body": "Dérivées principales : (x^n)' = n x^(n-1), (sin x)' = cos x, (cos x)' = -sin x, (e^x)' = e^x."
+    },
+    {
+      "head": "Notation",
+      "body": "On utilise f'(x), df/dx ou Df(x) pour noter la dérivée d'une fonction."
+    }
+  ],
+
+  "apply": [
+
+    {
+      "type": "QCM",
+      "text": "Dérivée de x^3 ?",
+      "propos": ["3x^2","x^2","3x","x^3"],
+      "res": "3x^2"
+    },
+
+    {
+      "type": "QCM",
+      "text": "Dérivée de sin(x) ?",
+      "propos": ["cos(x)","-cos(x)","sin(x)","-sin(x)"],
+      "res": "cos(x)"
+    },
+
+    {
+      "type": "QCM",
+      "text": "Dérivée de e^x ?",
+      "propos": ["e^x","x*e^x","1","0"],
+      "res": "e^x"
+    },
+
+    {
+      "type": "QCM",
+      "text": "Dérivée de cos(x) ?",
+      "propos": ["-sin(x)","cos(x)","sin(x)","-cos(x)"],
+      "res": "-sin(x)"
+    },
+
+    {
+      "type": "QCM",
+      "text": "Dérivée de 5x^4 ?",
+      "propos": ["20x^3","5x^3","x^4","20x^4"],
+      "res": "20x^3"
+    },
+
+    {
+      "type": "alternatif",
+      "text": "La dérivée de f(g(x)) est f'(g(x)) * g'(x)",
+      "res": "vrai"
+    },
+
+    {
+      "type": "rearrangement",
+      "text": "Réorganise la formule de la dérivée composée",
+      "propos": ["f'","(","g","(","x",")",")","*","g'","(","x",")"],
+      "res": "f'(g(x)) * g'(x)"
+    },
+
+    {
+      "type": "APPAREIMENT",
+      "text": "Associe la fonction à sa dérivée",
+      "col_A": [
+        { "key": 1, "value": "x^5" },
+        { "key": 2, "value": "cos(x)" },
+        { "key": 3, "value": "e^x" },
+        { "key": 4, "value": "sin(x)" }
+      ],
+      "col_B": [
+        { "key": 2, "value": "-sin(x)" },
+        { "key": 4, "value": "cos(x)" },
+        { "key": 1, "value": "5x^4" },
+        { "key": 3, "value": "e^x" }
+      ]
+    },
+
+    {
+      "type": "QCM",
+      "text": "Dérivée de ln(x) ?",
+      "propos": ["1/x","x","ln(x)","0"],
+      "res": "1/x"
+    },
+
+    {
+      "type": "QCM",
+      "text": "Si f(x) = (2x+1)^3, f'(x) = ?",
+      "propos": ["6(2x+1)^2","3(2x+1)^2","(2x+1)^2","8x+3"],
+      "res": "6(2x+1)^2"
+    },
+
+    {
+      "type": "alternatif",
+      "text": "La dérivée de x^n est n*x^(n-1)",
+      "res": "vrai"
+    },
+
+    {
+      "type": "rearrangement",
+      "text": "Écris la dérivée de x^4",
+      "propos": ["x","^","4","'","=","4","x","^","3"],
+      "res": "x^4' = 4x^3"
+    },
+
+    {
+      "type": "QCM",
+      "text": "Dérivée de tan(x) ?",
+      "propos": ["1/cos^2(x)","1/sin^2(x)","tan(x)","cos(x)"],
+      "res": "1/cos^2(x)"
+    },
+
+    {
+      "type": "QCM",
+      "text": "Dérivée de 7x ?",
+      "propos": ["7","x","0","1"],
+      "res": "7"
+    },
+
+    {
+      "type": "QCM",
+      "text": "Dérivée de 1/x ?",
+      "propos": ["-1/x^2","1/x^2","-x","x"],
+      "res": "-1/x^2"
+    }
+
+  ]
+},
+{
+  "title": "Statistiques & Probabilités",
+  "id": "FICHE-STAT-05",
+  "matter": "Math",
+  "state": "0%",
+  "date": "16/01/2026",
+  "body": [
+    {
+      "head": "Introduction aux statistiques",
+      "body": "La statistique consiste à collecter, organiser et interpréter des données afin de prendre des décisions ou de tirer des conclusions."
+    },
+    {
+      "head": "Moyenne, Médiane, Mode",
+      "body": "La moyenne est la somme des valeurs divisée par leur nombre. La médiane est la valeur centrale d'une série triée. Le mode est la valeur la plus fréquente."
+    },
+    {
+      "head": "Écart-type et Variance",
+      "body": "La variance mesure la dispersion des données : Var(X) = Σ(xi - μ)^2 / n. L'écart-type est la racine carrée de la variance : σ = √Var(X)."
+    },
+    {
+      "head": "Probabilités de base",
+      "body": "Pour un événement A, P(A) = nombre de cas favorables / nombre de cas possibles. La probabilité d'événements indépendants multiplie leurs probabilités."
+    },
+    {
+      "head": "Événements complémentaires et conditionnels",
+      "body": "P(A ∪ B) = P(A) + P(B) − P(A ∩ B). P(A ∩ B) = P(A) * P(B|A) pour les événements dépendants. L'événement complémentaire a pour probabilité P(A') = 1 − P(A)."
+    }
+  ],
+
+  "apply": [
+
+    {
+      "type": "QCM",
+      "text": "Quelle est la moyenne de 2,4,6,8 ?",
+      "propos": ["5","4","6","20"],
+      "res": "5"
+    },
+
+    {
+      "type": "QCM",
+      "text": "La médiane de 3,7,2,9,5 ?",
+      "propos": ["5","3","7","2"],
+      "res": "5"
+    },
+
+    {
+      "type": "QCM",
+      "text": "Mode de la série 1,2,2,3,3,3,4 ?",
+      "propos": ["3","2","4","1"],
+      "res": "3"
+    },
+
+    {
+      "type": "QCM",
+      "text": "Variance de 2,4,6 ?",
+      "propos": ["4/3","8/3","2","1"],
+      "res": "4/3"
+    },
+
+    {
+      "type": "QCM",
+      "text": "Écart-type de 2,4,6 ?",
+      "propos": ["√(4/3)","2","√3","3"],
+      "res": "√(4/3)"
+    },
+
+    {
+      "type": "QCM",
+      "text": "P(A) pour A = tirer un 6 avec un dé ?",
+      "propos": ["1/6","1/2","1/3","1/5"],
+      "res": "1/6"
+    },
+
+    {
+      "type": "QCM",
+      "text": "P(A ∪ B) avec A et B disjoints ?",
+      "propos": ["P(A)+P(B)","P(A)*P(B)","P(A)-P(B)","P(A)/P(B)"],
+      "res": "P(A)+P(B)"
+    },
+
+    {
+      "type": "QCM",
+      "text": "P(A') = ?",
+      "propos": ["1-P(A)","P(A)","0","P(A)*2"],
+      "res": "1-P(A)"
+    },
+
+    {
+      "type": "alternatif",
+      "text": "L'écart-type est la racine carrée de la variance",
+      "res": "vrai"
+    },
+
+    {
+      "type": "alternatif",
+      "text": "La médiane est toujours égale à la moyenne",
+      "res": "faux"
+    },
+
+    {
+      "type": "rearrangement",
+      "text": "Réorganise la formule de la variance",
+      "propos": ["Var","(","X",")","=","Σ","(","xi","-","μ",")^2","/","n"],
+      "res": "Var(X) = Σ(xi - μ)^2 / n"
+    },
+
+    {
+      "type": "rearrangement",
+      "text": "Écris la probabilité d'événement complémentaire",
+      "propos": ["P","(","A","'","=","1","-","P","(","A",")"],
+      "res": "P(A') = 1 - P(A)"
+    },
+
+    {
+      "type": "APPAREIMENT",
+      "text": "Associe chaque concept à sa formule",
+      "col_A": [
+        { "key": 1, "value": "Moyenne" },
+        { "key": 2, "value": "Écart-type" },
+        { "key": 3, "value": "Variance" },
+        { "key": 4, "value": "Probabilité" }
+      ],
+      "col_B": [
+        { "key": 1, "value": "Σxi / n" },
+        { "key": 3, "value": "Σ(xi - μ)^2 / n" },
+        { "key": 2, "value": "√Var(X)" },
+        { "key": 4, "value": "1 - P(A)" }
+      ]
+    },
+
+    {
+      "type": "APPAREIMENT",
+      "text": "Associe l'événement à sa probabilité",
+      "col_A": [
+        { "key": 1, "value": "Tirer un 6" },
+        { "key": 2, "value": "Événement complémentaire de A" }
+      ],
+      "col_B": [
+        { "key": 1, "value": "1/6" },
+        { "key": 2, "value": "1 - P(A)" }
+      ]
+    }
+
+  ]
+},
+{
+  "title": "Nombres complexes & Transformations du plan",
+  "id": "FICHE-COMPL-06",
+  "matter": "Math",
+  "state": "0%",
+  "date": "16/01/2026",
+  "body": [
+    {
+      "head": "Introduction aux nombres complexes",
+      "body": "Un nombre complexe s'écrit z = a + bi avec a et b réels et i² = -1. a est la partie réelle et b la partie imaginaire."
+    },
+    {
+      "head": "Opérations de base",
+      "body": "Addition : (a + bi) + (c + di) = (a+c) + (b+d)i. Soustraction : (a + bi) - (c + di) = (a-c) + (b-d)i. Multiplication : (a + bi)*(c + di) = (ac - bd) + (ad + bc)i."
+    },
+    {
+      "head": "Module et argument",
+      "body": "Le module |z| = √(a² + b²). L'argument Arg(z) est l'angle θ tel que cosθ = a/|z| et sinθ = b/|z|. On peut écrire z = |z|(cosθ + i sinθ)."
+    },
+    {
+      "head": "Conjugaison et division",
+      "body": "Le conjugué de z = a + bi est z̄ = a - bi. Pour diviser z1/z2, on multiplie par le conjugué du dénominateur : z1/z2 = (z1*z̄2)/|z2|²."
+    },
+    {
+      "head": "Transformations dans le plan complexe",
+      "body": "On peut représenter z dans un plan avec l'axe réel et imaginaire. Les transformations incluent translation, rotation et homothétie. Rotation de centre 0 et angle θ : z ↦ z*e^(iθ). Translation de vecteur u : z ↦ z + u."
+    }
+  ],
+
+  "apply": [
+
+    {
+      "type": "QCM",
+      "text": "z = 3 + 4i, |z| = ?",
+      "propos": ["5","7","1","4"],
+      "res": "5"
+    },
+
+    {
+      "type": "QCM",
+      "text": "Conjugué de 2 + 5i ?",
+      "propos": ["2-5i","-2+5i","2+5i","-2-5i"],
+      "res": "2-5i"
+    },
+
+    {
+      "type": "QCM",
+      "text": "Argument de z = 1 + i ?",
+      "propos": ["π/4","π/2","π","0"],
+      "res": "π/4"
+    },
+
+    {
+      "type": "QCM",
+      "text": "Multiplication : (1+2i)*(3+i) ?",
+      "propos": ["1+7i","1+5i","-1+5i","3+2i"],
+      "res": "-1+7i"
+    },
+
+    {
+      "type": "QCM",
+      "text": "Division : (3+2i)/(1-i) ?",
+      "propos": ["0.5+2.5i","1+5i","5+1i","2+3i"],
+      "res": "0.5+2.5i"
+    },
+
+    {
+      "type": "QCM",
+      "text": "z = 2i, rotation de π/2 ?",
+      "propos": ["-2","2i","-2i","2"],
+      "res": "-2"
+    },
+
+    {
+      "type": "alternatif",
+      "text": "Le module d'un nombre complexe est toujours positif",
+      "res": "vrai"
+    },
+
+    {
+      "type": "alternatif",
+      "text": "Le conjugué change le module du nombre complexe",
+      "res": "faux"
+    },
+
+    {
+      "type": "alternatif",
+      "text": "Une rotation dans le plan complexe conserve le module",
+      "res": "vrai"
+    },
+
+    {
+      "type": "rearrangement",
+      "text": "Écris la formule du module",
+      "propos": ["|z|","=","√","(","a²","+","b²",")"],
+      "res": "|z| = √(a² + b²)"
+    },
+
+    {
+      "type": "rearrangement",
+      "text": "Multiplication complexe",
+      "propos": ["(a+bi)","*","(c+di)","=","ac-bd","+","(ad+bc)i"],
+      "res": "(a+bi)*(c+di) = ac-bd + (ad+bc)i"
+    },
+
+    {
+      "type": "APPAREIMENT",
+      "text": "Associe chaque opération à sa formule",
+      "col_A": [
+        { "key": 1, "value": "Addition" },
+        { "key": 2, "value": "Multiplication" },
+        { "key": 3, "value": "Module" },
+        { "key": 4, "value": "Conjugué" }
+      ],
+      "col_B": [
+        { "key": 1, "value": "(a+c)+(b+d)i" },
+        { "key": 2, "value": "ac-bd + (ad+bc)i" },
+        { "key": 3, "value": "√(a²+b²)" },
+        { "key": 4, "value": "a-bi" }
+      ]
+    },
+
+    {
+      "type": "APPAREIMENT",
+      "text": "Associe la transformation à sa expression",
+      "col_A": [
+        { "key": 1, "value": "Rotation angle θ" },
+        { "key": 2, "value": "Translation vecteur u" }
+      ],
+      "col_B": [
+        { "key": 1, "value": "z ↦ z*e^(iθ)" },
+        { "key": 2, "value": "z ↦ z + u" }
+      ]
+    },
+
+    {
+      "type": "QCM",
+      "text": "z = 1+i, rotation π ?",
+      "propos": ["-1-i","1-i","-1+i","1+i"],
+      "res": "-1-i"
+    },
+
+    {
+      "type": "QCM",
+      "text": "z = 2+3i, addition 1+2i ?",
+      "propos": ["3+5i","1+5i","2+5i","3+6i"],
+      "res": "3+5i"
+    },
+
+    {
+      "type": "QCM",
+      "text": "z = -1+4i, conjugué ?",
+      "propos": ["-1-4i","1+4i","-1+4i","1-4i"],
+      "res": "-1-4i"
+    },
+
+    {
+      "type": "alternatif",
+      "text": "Une translation change le module d'un nombre complexe",
+      "res": "faux"
+    }
+
+  ]
+}
+  
+]

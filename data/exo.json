@@ -1,0 +1,317 @@
+[
+  {
+  "title": "Bac C 2023",
+  "matter": "Math",
+  "contry": "Congo 🇨🇬",
+  "level": "difficile",
+  "id": "CG-BAC-2023-CPLX",
+  "body": [
+    {
+      "head": "Introduction aux nombres complexes",
+      "body": "Un nombre complexe est un nombre de la forme z = a + bi, où a et b sont réels et i² = −1. Les nombres complexes permettent de résoudre des équations impossibles dans R et modélisent des rotations et transformations sur le plan."
+    },
+    {
+      "head": "Module et argument",
+      "body": "Le module d’un nombre complexe z = a + bi est |z| = √(a² + b²). L’argument arg(z) est l’angle que fait la représentation vectorielle de z avec l’axe réel. Il est utilisé pour représenter z sous forme trigonométrique : z = |z|(cos θ + i sin θ)."
+    },
+    {
+      "head": "Forme trigonométrique et exponentielle",
+      "body": "La forme trigonométrique est utile pour les multiplications et divisions : z₁z₂ = |z₁||z₂|[cos(θ₁+θ₂)+i sin(θ₁+θ₂)]. La forme exponentielle z = |z| e^(iθ) simplifie les puissances et racines : z^n = |z|^n e^(inθ)."
+    },
+    {
+      "head": "Transformations dans le plan",
+      "body": "Un nombre complexe peut représenter une transformation du plan : translation, rotation ou homothétie. Par exemple, multiplier par e^(iθ) correspond à une rotation de θ autour de l’origine, et ajouter un complexe correspond à une translation."
+    },
+    {
+      "head": "Applications pratiques",
+      "body": "Les nombres complexes servent à l’étude des signaux, oscillations, et géométrie analytique. Comprendre leurs opérations et représentations est crucial pour résoudre des problèmes de trigonométrie, de géométrie et de physique mathématique."
+    }
+  ],
+  "problem": [
+    {
+      "head": "Exercice 1 — Nombres complexes",
+      "id": "exo1",
+      "body": "Soit z = 3 + 4i et w = 1 − 2i.\n\nQuestions :\n1. Calculer z + w.\n2. Calculer z × w.\n3. Calculer le module et l’argument de z.\n4. Écrire z sous forme trigonométrique."
+    },
+    {
+      "head": "Exercice 2 — Puissance et racines",
+      "id": "exo2",
+      "body": "On considère z = 1 + i.\n\nQuestions :\n1. Calculer z² et z³.\n2. Déterminer |z| et arg(z).\n3. Écrire z^4 sous forme trigonométrique."
+    },
+    {
+      "head": "Exercice 3 — Transformations du plan",
+      "id": "exo3",
+      "body": "On représente un point M par z = 2 + i.\n\nQuestions :\n1. Calculer l’image de M par la translation de vecteur w = 1 − i.\n2. Calculer l’image de M par une rotation de π/2 autour de l’origine.\n3. Calculer l’image de M par l’homothétie de rapport 2."
+    },
+    {
+      "head": "Exercice 4 — Applications combinées",
+      "id": "exo4",
+      "body": "On considère z₁ = 1 + i et z₂ = −1 + i.\n\nQuestions :\n1. Déterminer z₁ + z₂ et z₁ − z₂.\n2. Calculer z₁ × z₂ et z₁ / z₂.\n3. Tracer les points correspondants sur le plan complexe."
+    }
+  ],
+  "solution": [
+    {
+      "head": "Corrigé Exercice 1",
+      "problemId": "exo1",
+      "body": "z + w = (3+1) + (4−2)i = 4 + 2i\nz × w = (3+4i)(1−2i) = 3 − 6i + 4i − 8i² = 11 − 2i\n|z| = √(3²+4²) = 5\narg(z) = arctan(4/3) ≈ 53,13°\nForme trigonométrique : z = 5 (cos53,13° + i sin53,13°)"
+    },
+    {
+      "head": "Corrigé Exercice 2",
+      "problemId": "exo2",
+      "body": "z² = (1+i)² = 1 + 2i + i² = 2i\nz³ = z² × z = 2i × (1+i) = 2i + 2i² = −2 + 2i\n|z| = √2\narg(z) = π/4\nz⁴ = (z²)² = (2i)² = −4"
+    },
+    {
+      "head": "Corrigé Exercice 3",
+      "problemId": "exo3",
+      "body": "Translation : z + w = (2+i) + (1−i) = 3 + 0i\nRotation π/2 : z × e^(iπ/2) = (2+i) × i = 2i − 1 = −1 + 2i\nHomothétie de rapport 2 : z × 2 = 4 + 2i"
+    },
+    {
+      "head": "Corrigé Exercice 4",
+      "problemId": "exo4",
+      "body": "z₁ + z₂ = (1−1) + (1+1)i = 0 + 2i\nz₁ − z₂ = (1+1) + (1−1)i = 2 + 0i\nz₁ × z₂ = (1+i)(−1+i) = −1 + i − i + i² = −2\nz₁ / z₂ = (1+i)/(−1+i) × (−1−i)/(−1−i) = (−1−i + −i−i²)/((−1)²+1²) = (−2i)/2 = −i"
+    }
+  ]
+},
+
+  {
+  "title": "Bac C 2024",
+  "matter": "Math",
+  "contry": "Congo 🇨🇬",
+  "level": "difficile",
+  "id": "CG-BAC-2024-ANA",
+  "problem": [
+    {
+      "head": "Exercice 1 — Étude de fonction polynomiale",
+      "id": "exo1",
+      "body": "On considère la fonction f définie sur R par :\n\nf(x) = x³ − 6x² + 9x + 1\n\nQuestions :\n1. Calculer f’(x).\n2. Étudier le signe de f’(x) et les variations de f.\n3. Déterminer les extremums et leurs valeurs.\n4. Tracer le tableau de variation."
+    },
+    {
+      "head": "Exercice 2 — Étude de fonction exponentielle",
+      "id": "exo2",
+      "body": "On considère f(x) = e^x − 2x.\n\nQuestions :\n1. Calculer f’(x).\n2. Étudier le signe de f’(x) et en déduire les intervalles de croissance et décroissance.\n3. Déterminer le minimum de f."
+    },
+    {
+      "head": "Exercice 3 — Dérivée et applications",
+      "id": "exo3",
+      "body": "On considère f(x) = x² ln(x).\n\nQuestions :\n1. Calculer f’(x).\n2. Étudier la croissance de f sur ]0 ; +∞[.\n3. Déterminer les limites de f en 0+ et +∞.\n4. Identifier les points où la tangente est horizontale."
+    },
+    {
+      "head": "Exercice 4 — Analyse d’une fonction rationnelle",
+      "id": "exo4",
+      "body": "On considère f(x) = (x² + 1)/(x − 1).\n\nQuestions :\n1. Calculer f’(x).\n2. Étudier le signe de f’(x) et déterminer les intervalles de variation.\n3. Déterminer les extremums locaux."
+    }
+  ],
+  "body": [
+    {
+      "head": "Introduction aux fonctions",
+      "body": "Une fonction relie chaque élément d’un ensemble à un unique élément d’un autre ensemble. La compréhension de la variation d’une fonction permet de prévoir son comportement et d’identifier ses points critiques."
+    },
+    {
+      "head": "Dérivée",
+      "body": "La dérivée f’(x) d’une fonction f(x) représente le taux de variation instantané. Elle indique si la fonction croît ou décroît sur un intervalle donné."
+    },
+    {
+      "head": "Signe de la dérivée",
+      "body": "Si f’(x) > 0 sur un intervalle, f est croissante. Si f’(x) < 0, f est décroissante. Cette propriété permet de déterminer les intervalles de croissance et décroissance et les extremums."
+    },
+    {
+      "head": "Extremums",
+      "body": "Les extremums sont les points où f’(x) = 0 ou f’(x) est indéfinie. Le maximum local est un point où la fonction atteint une valeur supérieure à ses voisins, et le minimum local atteint une valeur inférieure."
+    },
+    {
+      "head": "Applications pratiques",
+      "body": "La dérivée est utilisée pour tracer le tableau de variation, identifier les points où la tangente est horizontale, et résoudre des problèmes de maximum ou minimum. Maîtriser ces notions permet d’aborder tout type d’exercice d’analyse."
+    }
+  ],
+  "solution": [
+    {
+      "head": "Corrigé Exercice 1",
+      "problemId": "exo1",
+      "body": "f’(x) = 3x² − 12x + 9 = 3(x² − 4x + 3) = 3(x − 1)(x − 3)\n\nSigne de f’(x) :\n- positive pour x < 1 et x > 3\n- négative pour 1 < x < 3\n\nVariations : f croît sur ]−∞ ; 1] et [3 ; +∞[, f décroît sur [1 ; 3]\n\nExtremums : maximum local en x = 1 : f(1) = 1 − 6 + 9 + 1 = 5\nMinimum local en x = 3 : f(3) = 27 − 54 + 27 + 1 = 1"
+    },
+    {
+      "head": "Corrigé Exercice 2",
+      "problemId": "exo2",
+      "body": "f’(x) = e^x − 2\n\nSigne :\n- f’(x) < 0 pour x < ln(2)\n- f’(x) > 0 pour x > ln(2)\n\nLa fonction décroît sur ]−∞ ; ln(2)[ et croît sur ]ln(2) ; +∞[\n\nMinimum : f(ln(2)) = 2 − 2 ln(2)"
+    },
+    {
+      "head": "Corrigé Exercice 3",
+      "problemId": "exo3",
+      "body": "f’(x) = 2x ln(x) + x² × 1/x = 2x ln(x) + x = x(2 ln(x) + 1)\n\nCroissance : f’(x) > 0 ⇒ 2 ln(x) + 1 > 0 ⇒ ln(x) > −1/2 ⇒ x > e^(−1/2)\n\nLimites :\n- x → 0+ : f(x) → 0\n- x → +∞ : f(x) → +∞\n\nTangente horizontale : f’(x) = 0 ⇒ x = e^(−1/2)"
+    },
+    {
+      "head": "Corrigé Exercice 4",
+      "problemId": "exo4",
+      "body": "f’(x) = [(2x)(x−1) − (x² + 1)] / (x−1)² = (2x² − 2x − x² −1)/(x−1)² = (x² − 2x −1)/(x−1)²\n\nSigne de f’(x) : déterminer les racines du numérateur x² − 2x −1 = 0 ⇒ x = 1 ± √2\n\nVariations :\n- croissante sur ]−∞ ; 1−√2] et [1+√2 ; +∞[\n- décroissante sur [1−√2 ; 1+√2]\n\nExtremums :\n- Maximum local en x = 1 − √2\n- Minimum local en x = 1 + √2"
+    }
+  ]
+},
+
+  {
+  "title": "Olympiade Nationale",
+  "matter": "Math",
+  "contry": "France 🇫🇷",
+  "level": "difficile",
+  "id": "CG-BAC-2023-SUI",
+  "problem": [
+    {
+      "head": "Exercice 1 — Suite arithmétique",
+      "id": "exo1",
+      "body": "On considère la suite (u_n) définie par :\n\nu_0 = 2\nu_(n+1) = u_n + 3\n\nQuestions :\n1. Calculer u_1, u_2 et u_3.\n2. Donner la formule générale de u_n.\n3. Étudier la croissance de la suite."
+    },
+    {
+      "head": "Exercice 2 — Suite géométrique",
+      "id": "exo2",
+      "body": "On considère la suite (v_n) définie par :\n\nv_0 = 1\nv_(n+1) = 2 × v_n\n\nQuestions :\n1. Calculer v_1, v_2 et v_3.\n2. Donner la formule générale de v_n.\n3. Étudier la croissance de la suite."
+    },
+    {
+      "head": "Exercice 3 — Suite définie par récurrence non linéaire",
+      "id": "exo3",
+      "body": "On considère la suite (w_n) définie par :\n\nw_0 = 1\nw_(n+1) = w_n² + 1\n\nQuestions :\n1. Calculer w_1, w_2.\n2. Montrer que la suite est strictement croissante.\n3. Comment se comporte-t-elle pour n grand ?"
+    }
+  ],
+  "solution": [
+    {
+      "head": "Corrigé Exercice 1",
+      "problemId": "exo1",
+      "body": "Calcul des premiers termes :\n\nu_1 = 2 + 3 = 5\nu_2 = 5 + 3 = 8\nu_3 = 8 + 3 = 11\n\nFormule générale : u_n = 2 + 3n\n\nCroissance : la suite est strictement croissante car la raison est positive (3 > 0)."
+    },
+    {
+      "head": "Corrigé Exercice 2",
+      "problemId": "exo2",
+      "body": "Calcul des premiers termes :\n\nv_1 = 2 × 1 = 2\nv_2 = 2 × 2 = 4\nv_3 = 2 × 4 = 8\n\nFormule générale : v_n = 2^n\n\nCroissance : la suite est strictement croissante car le rapport est > 1."
+    },
+    {
+      "head": "Corrigé Exercice 3",
+      "problemId": "exo3",
+      "body": "Calcul des premiers termes :\n\nw_1 = 1² + 1 = 2\nw_2 = 2² + 1 = 5\n\nCroissance :\n- w_(n+1) − w_n = w_n² + 1 − w_n = w_n² − w_n + 1 > 0 pour tout w_n ≥ 1\nDonc la suite est strictement croissante.\n\nComportement pour n grand : la suite diverge vers +∞ très rapidement (croissance exponentielle)."
+    }
+  ]
+},
+
+  {
+  "title": "Baccalauréat Scientifique",
+  "matter": "Math",
+  "contry": "Cameroun 🇨🇲",
+  "level": "difficile",
+  "id": "CG-BAC-2023-FCT",
+  "problem": [
+    {
+      "head": "Exercice 1 — Étude de fonction polynomiale",
+      "id": "exo1",
+      "body": "On considère la fonction f définie par :\n\nf(x) = x³ − 6x² + 9x + 1\n\nQuestions :\n1. Calculer f’(x).\n2. Étudier le sens de variation de f.\n3. Déterminer les extremums.\n4. Résoudre graphiquement f(x) = 0."
+    },
+    {
+      "head": "Exercice 2 — Étude de fonction rationnelle",
+      "id": "exo2",
+      "body": "On considère la fonction g définie par :\n\ng(x) = (x² + 1) / (x − 1)\n\nQuestions :\n1. Calculer g’(x).\n2. Déterminer les intervalles de croissance et de décroissance.\n3. Étudier les limites de g en 1 et à l’infini."
+    },
+    {
+      "head": "Exercice 3 — Fonction exponentielle",
+      "id": "exo3",
+      "body": "On considère h(x) = e^x − 2x\n\nQuestions :\n1. Calculer h’(x).\n2. Étudier le signe de h’(x) et les variations de h.\n3. Déterminer les points où h(x) = 0 (approximations)."
+    }
+  ],
+  "solution": [
+    {
+      "head": "Corrigé Exercice 1",
+      "problemId": "exo1",
+      "body": "f’(x) = 3x² − 12x + 9 = 3(x² − 4x + 3) = 3(x − 1)(x − 3)\n\nSigne :\n- f’(x) > 0 si x < 1 ou x > 3\n- f’(x) < 0 si 1 < x < 3\n\nVariations :\n- Croissante sur ]−∞,1] et [3,+∞[\n- Décroissante sur [1,3]\n\nExtremums :\n- Maximum local en x = 1, f(1) = 5\n- Minimum local en x = 3, f(3) = −5\n\nSolutions graphiques : x ≈ −0,2 ; x ≈ 0,5 ; x ≈ 3,7"
+    },
+    {
+      "head": "Corrigé Exercice 2",
+      "problemId": "exo2",
+      "body": "g’(x) = [(2x)(x−1) − (x² + 1)(1)] / (x−1)² = (2x² − 2x − x² −1) / (x−1)² = (x² − 2x − 1) / (x−1)²\n\nCroissance/décroissance :\n- g’(x) = 0 ⇒ x² − 2x −1 = 0 ⇒ x = 1 ± √2\n\nLimites :\n- lim x→1 g(x) = ±∞ (discontinuité)\n- lim x→+∞ g(x) = +∞, lim x→−∞ g(x) = −∞"
+    },
+    {
+      "head": "Corrigé Exercice 3",
+      "problemId": "exo3",
+      "body": "h’(x) = e^x − 2\n\nSigne :\n- h’(x) > 0 si e^x − 2 > 0 ⇒ x > ln(2)\n- h’(x) < 0 si x < ln(2)\n\nVariations :\n- Décroissante sur ]−∞, ln(2)[\n- Croissante sur ]ln(2), +∞[\n\nPoint où h(x) = 0 :\n- e^x − 2x = 0 ⇒ x ≈ 0,852"
+    }
+  ]
+},
+
+  {
+  "title": "Concours Scientifique",
+  "matter": "Math",
+  "contry": "Sénégal 🇸🇳",
+  "level": "moyen",
+  "id": "CG-BAC-2022-STAT",
+  "problem": [
+    {
+      "head": "Exercice 1 — Statistiques descriptives",
+      "id": "exo1",
+      "body": "On donne la série statistique suivante représentant les notes d’un devoir :\n\nNotes : 8 ; 10 ; 12 ; 14 ; 16\nEffectifs : 2 ; 5 ; 8 ; 3 ; 2\n\nQuestions :\n1. Calculer l’effectif total.\n2. Calculer la moyenne.\n3. Déterminer la médiane.\n4. Calculer la variance."
+    },
+    {
+      "head": "Exercice 2 — Probabilités simples",
+      "id": "exo2",
+      "body": "Une urne contient 5 boules rouges, 3 boules bleues et 2 boules vertes.\n\nQuestions :\n1. Probabilité de tirer une boule rouge.\n2. Probabilité de tirer une boule bleue.\n3. Probabilité de ne pas tirer une boule verte."
+    },
+    {
+      "head": "Exercice 3 — Probabilités composées",
+      "id": "exo3",
+      "body": "On tire deux boules successivement sans remise dans l’urne précédente.\n\nQuestions :\n1. Probabilité de tirer deux boules rouges.\n2. Probabilité de tirer une boule rouge puis une bleue.\n3. Probabilité de tirer deux boules de couleurs différentes."
+    }
+  ],
+  "solution": [
+    {
+      "head": "Corrigé Exercice 1",
+      "problemId": "exo1",
+      "body": "Effectif total : N = 2 + 5 + 8 + 3 + 2 = 20\n\nMoyenne : m = (8×2 + 10×5 + 12×8 + 14×3 + 16×2) / 20 = 11,8\n\nMédiane : Les 10e et 11e valeurs sont 12, donc médiane = 12\n\nVariance : calculée à partir des écarts à la moyenne."
+    },
+    {
+      "head": "Corrigé Exercice 2",
+      "problemId": "exo2",
+      "body": "Total de boules = 5 + 3 + 2 = 10\n\nP(rouge) = 5 / 10 = 1/2\nP(bleue) = 3 / 10\nP(non verte) = 8 / 10 = 4/5"
+    },
+    {
+      "head": "Corrigé Exercice 3",
+      "problemId": "exo3",
+      "body": "P(rouge puis rouge) = (5/10) × (4/9) = 20/90 = 2/9\n\nP(rouge puis bleue) = (5/10) × (3/9) = 15/90 = 1/6\n\nP(deux couleurs différentes) = 1 − P(rouge, rouge) − P(bleue, bleue) − P(verte, verte)\n= 1 − (5/10 × 4/9) − (3/10 × 2/9) − (2/10 × 1/9) = 1 − 20/90 − 6/90 − 2/90 = 62/90 = 31/45"
+    }
+  ]
+},
+
+  {
+ "title": "Bac Scientifique",
+ "matter": "Math",
+ "contry": "Maroc 🇲🇦",
+ "level": "difficile",
+  "id": "CG-BAC-2021-FCT",
+  "problem": [
+    {
+      "head": "Exercice 1 — Étude de fonction",
+      "id": "exo1",
+      "body": "On considère la fonction f définie par :\n\nf(x) = x³ − 3x + 1\n\nQuestions :\n1. Calculer la dérivée de f.\n2. Étudier le sens de variation de f.\n3. Déterminer les extremums de f.\n4. Résoudre graphiquement l’équation f(x) = 0 (valeurs approchées)."
+    },
+    {
+      "head": "Exercice 2 — Fonction polynomiale",
+      "id": "exo2",
+      "body": "On considère g(x) = x⁴ − 4x² + 2\n\nQuestions :\n1. Calculer la dérivée g'(x).\n2. Étudier les variations de g.\n3. Déterminer les maximums et minimums locaux.\n4. Résoudre g(x) = 0 graphiquement."
+    },
+    {
+      "head": "Exercice 3 — Limites et asymptotes",
+      "id": "exo3",
+      "body": "On considère h(x) = (2x² + 3)/(x − 1)\n\nQuestions :\n1. Calculer la limite en +∞ et −∞.\n2. Déterminer les asymptotes horizontales et verticales.\n3. Étudier le signe de h'(x)."
+    }
+  ],
+  "solution": [
+    {
+      "head": "Corrigé Exercice 1",
+      "problemId": "exo1",
+      "body": "f’(x) = 3x² − 3\n\nf’(x) = 3(x − 1)(x + 1)\n\nSigne :\n- positive si x < −1 ou x > 1\n- négative si −1 < x < 1\n\nVariations :\nf croît sur ]−∞ ; −1] et [1 ; +∞[\nf décroît sur [−1 ; 1]\n\nExtremums :\nMaximum local en x = −1\nMinimum local en x = 1\n\nSolutions graphiques :\nx ≈ −1,9 ; x ≈ 0,3 ; x ≈ 1,6"
+    },
+    {
+      "head": "Corrigé Exercice 2",
+      "problemId": "exo2",
+      "body": "g'(x) = 4x³ − 8x = 4x(x² − 2)\n\nSigne :\n- g'(x) > 0 pour x < −√2 et x > 0\n- g'(x) < 0 pour −√2 < x < 0 et 0 < x < √2\n\nMaximum et minimum locaux :\nMaximum local en x = −√2\nMinimum local en x = 0\nMaximum local en x = √2\n\nGraphique : points critiques à x = −√2, 0, √2"
+    },
+    {
+      "head": "Corrigé Exercice 3",
+      "problemId": "exo3",
+      "body": "Limites :\nlim x→+∞ h(x) = lim (2x² + 3)/(x − 1) = +∞\nlim x→−∞ h(x) = −∞\n\nAsymptotes :\n- verticale : x = 1\n- horizontale : aucune\n\nDérivée :\nh'(x) = (4x(x−1) − (2x²+3))/(x−1)² = (2x² − 4x − 3)/(x−1)²\n\nSigne de h'(x) permet d'étudier les variations."
+    }
+  ]
+}
+]
