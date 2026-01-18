@@ -45,11 +45,12 @@ html, body {
 
 /* ====== CONTAINER ====== */
 #container {
-    position: fixed;   /* pour se placer entre header et nav */
+    position: absolute;   /* pour se placer entre header et nav */
     top: 6vh;            /* juste sous header */
     bottom: 8vh;          /* juste au-dessus de la nav */
     left: 0;
     width: 100%;
+    height:86vh;
     display: flex;
     flex-direction: column;
     align-items: center;
