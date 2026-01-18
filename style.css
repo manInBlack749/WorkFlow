@@ -6,45 +6,71 @@ html, body {
     margin: 0;
     font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     box-sizing: border-box;
-    overflow-x: hidden;
+    overflow-x: hidden; /* juste horizontal */
+    overflow-y: hidden; /* vertical limité au container */
 }
-/* ====== STRUCTURE PRINCIPALE ====== */
+
+/* ====== HEADER ====== */
 #en-t { 
-    width: 100vw;
-    height: 8vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1vh 2vw;
+    padding: 2vh 2vw;
     z-index: 100;
+    border-bottom: 3px solid #F2F2F2;
+    background-color: #fff;
 }
 
+/* ====== FOOTER / NAV ====== */
+#nav-b {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 8vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 100;
+    border-top: 3px solid #F2F2F2;
+    background-color: #fff;
+    padding: 0.5vh 2vw;
+}
+
+/* ====== CONTAINER ====== */
 #container {
-    width: 100vw;
-    height: 86vh;
-    border: 5px solid #F2F2F2;
+    position: absolute;   /* pour se placer entre header et nav */
+    top: 10vh;            /* juste sous header */
+    bottom: 6vh;          /* juste au-dessus de la nav */
+    left: 0;
+    width: 100%;
+    height: 84vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    overflow-y: scroll;
-    scrollbar-gutter:stable;
-    padding-top:2vh;
-    padding-bottom: 2vh;
-    z-index:10;
+    overflow-y: auto;     /* scroll uniquement ici */
+    padding: 2vh 2vw;
+    padding-bottom: 10vh;
+    box-sizing: border-box;
 }
 
+/* espace entre éléments du container */
 #container > * + * {
     margin-top: 2vh;
 }
 
-#nav-b {
-    width: 100vw;
-    height: 6vh;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    z-index: 100;padding:10px;
-    padding-top:15px;
+/* ====== SCROLLBAR ====== */
+#container::-webkit-scrollbar {
+    width: 6px;
+}
+#container::-webkit-scrollbar-thumb {
+    background-color: #DEDEDE;
+    border-radius: 3px;
 }
 
 /* ====== BOUTONS & ICONES ====== */
@@ -151,10 +177,6 @@ html, body {
 .level {  opacity: 0.3; flex-grow: 1; }
 .option { flex-grow: 1; }
 
-/* ====== SCROLLBAR ====== */
-::-webkit-scrollbar { width: 10px; height:10px; }
-::-webkit-scrollbar-thumb { background-color: #DEDEDE; border-radius: 10px; }
-
 /* ====== OUVERTURE D’EXERCICE ====== */
 #exit {
     background-color: #000;
@@ -233,7 +255,7 @@ html, body {
 
 .valider-block { 
     width: 80%; 
-    min-height: 150px; 
+    min-height: 8rem; 
     border-radius: 20px; 
     display: flex; 
     flex-direction: column;
@@ -241,10 +263,10 @@ html, body {
     padding: 2vh; 
     justify-content: center; }
 
-.valider { width: 50%; height: 50px; font-size: 20px; background-color: #000; color: #fff; border-radius: 20px; flex-shrink: 0; }
+.valider { width: 50%; height: 50px; font-size: 1.2rem; font-weight:500;background-color: #000; color: #fff; border-radius: 20px; flex-shrink: 0; box-sizing:border-box;}
 
 /* ====== QCM ====== */
-.propos { width: 100%; height: 50px; background-color: #fff; color: #000; border: 3px solid #000; border-radius: 20px; font-size: 2.5vw; font-weight: 500; flex-shrink: 0; }
+.propos { width: 100%; height:3.5rem; background-color: #fff; color: #000; border: 3px solid #000; border-radius: 25px; font-size: 2.5vw; font-weight: 500; flex-shrink: 0; }
 
 .big-propos { display: flex; flex-direction: column; width: 90%; height: 80%; align-items: center; justify-content: center; }
 .propos-block { width: 100%; height: 80%; display: flex; flex-direction: column; align-items: center; justify-content: center; flex-shrink: 0; }
@@ -252,12 +274,23 @@ html, body {
 
 /* ====== REARRANGEMENT ====== */
 .arrange { 
-   width: 8%;max-width:30%;
-   min-height:30px; 
-   flex-shrink: 0; 
-   margin: 1vh; 
-   font-size:15px; }
-
+    width: auto;         
+    max-width: 25vw;        
+    min-width: 4vw;   
+    height: auto;         
+    min-height: 3vh;    
+    padding: 1vh 1vw; 
+    flex-shrink: 0; 
+    margin: 0.5vh;   
+    font-size: 1.2vw;      
+    white-space: nowrap;  
+    overflow: hidden;       
+    text-overflow: ellipsis;   
+    display: flex;   
+    align-items: center;     
+    justify-content: center;  
+    box-sizing: border-box; 
+}
 .arrange-block { width: 80%; height: auto; display: flex; flex-wrap: wrap; }
 .arrange-result { width: 90%; display: flex; flex-direction: column; gap: 2vh; }
 .arrange-line { width: 100%; display: flex; flex-wrap: wrap; border-bottom: 0.5vh solid #f2f2f2; }
@@ -296,11 +329,11 @@ html, body {
 .altar { margin: 1vh; min-width: 30%; }
 
 /* ====== RESULTATS / DASHBOARD ====== */
-.result { font-size: 40px; font-weight: 600; }
-.result-img {width: 250px; height: auto; border-radius: 50%; }
-.score { font-size: 50px; }
+.result { font-size: 2rem; font-weight: 600; }
+.result-img {width: 15rem; height: auto; border-radius: 50%; }
+.score { font-size: 2.5rem; }
 .message { font-size: 15px; padding: 5%; }
-.dash-text { padding: 2%; font-size: 15px; }
+.dash-text { padding: 2%; font-size: 1rem; }
 
 /* ====== BARRE DE PROGRESSION ====== */
 #progress-container {
@@ -318,7 +351,7 @@ html, body {
 
 .test-text {
     max-width: 80%;
-    font-size: 15px;
+    font-size: 1rem;
     flex-shrink: 0;
     margin: 5%;
     font-weight: 500;
@@ -337,5 +370,5 @@ html, body {
     .exo-title{ font-size: 6vw; }
     .single-exo{ font-size: 4vw; }
     .propos{ font-size: 4vw; width: 80%; }
-    .corrige, .apply{ width: 30vw; height:50px; font-size: 20px; }
+    .corrige, .apply{ width: 30vw; height:50px; font-size: 1.2rem; }
 }
