@@ -12,7 +12,9 @@ const icon=d.querySelectorAll('.main-icon')
 let currentLoadId=0
 let index 
 let score 
-container.style.paddingBottom="30vh"
+container.style.paddingBottom="15vh"
+container.style.paddingTop="2vh"
+
 /*****decoupe automatique****/
 const cut=(t)=>{
       if(t.length <= 24) return t
@@ -30,12 +32,31 @@ const short=(l)=>{
       if(l.textContent.length > 10)
         l.style.fontSize="1rem"
 }
+const cleanContainerFor = (type) => {
+  // type = "fiche" ou "exo"
+  const children = Array.from(container.children);
+  for (let child of children) {
+    // Ignore loader, exit et spacer
+    if (child.id === "loader" || child.id === "exit" || child.dataset.bottomSpace) continue;
+ 
+    if (type === "fiche" && child.id==="exo") {
+      // si c'est un exo, on le supprime
+      container.removeChild(child);
+    }
+    else if (type === "exo" && child.id==="fiche") {
+      // si c'est une fiche (non exo), on le supprime
+      container.removeChild(child);
+    }else if (child.classList.contains("result-img") || child.classList.contains("dash-text")){
+      container.removeChild(child);
+    }
+  }
+};
 /******click sur bouton***/
 const click = new Audio("sound/click.mp3")
 /**"""dashboard****/
 const fillInfo= ()=>{
       let loadId= ++currentLoadId
-      loader.style.display="block"
+      let block=d.createElement("div")
       let img= new Image("explose.png")
       let message=d.createElement("div")
       
@@ -53,6 +74,7 @@ const fillInfo= ()=>{
 }
  /***generation des fiches*****/
 const fillFiche= async () => {
+      cleanContainerFor("fiche")
       loadId=currentLoadId
       loader.style.display='block'
       let fiche_block = d.createElement('div')
@@ -67,6 +89,8 @@ const fillFiche= async () => {
       
       if(loadId!==currentLoadId) return
       block_1.innerText =cut(data["title"])+" / "+data["matter"]
+      
+      fiche_block.id="fiche"
       
       state.innerText =data["apply"].length.toString()+ " questions"
       date.innerText =data["date"]
@@ -95,6 +119,7 @@ const fillFiche= async () => {
     }
 /******generation des exos*****/
 const fillExo= async () => {
+      cleanContainerFor("exo")
       loadId=currentLoadId
       loader.style.display='block'
       let exo_block = d.createElement('div')
@@ -109,6 +134,9 @@ const fillExo= async () => {
       console.log(data)
       if(loadId !== currentLoadId) return
       block_1.innerText =cut(data["title"])+" / "+data["matter"]
+      
+      exo_block.id="exo"
+      
       contry.innerText =data["contry"]
       level.innerText = data["level"]
       plus.src = 'icon/menu-dots-vertical.svg'
