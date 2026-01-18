@@ -29,6 +29,18 @@ const short=(l)=>{
       if(l.textContent.length > 10)
         l.style.fontSize="1rem"
 }
+const ensureBottomSpacer = () => {
+  let spacer = document.getElementById("nav-spacer")
+
+  if (!spacer) {
+    spacer = document.createElement("div")
+    spacer.id = "nav-spacer"
+    spacer.style.height = "10vh"
+    spacer.style.flexShrink = "0"
+  }
+
+  container.appendChild(spacer)
+}
 /******click sur bouton***/
 const click = new Audio("sound/click.mp3")
 /**"""dashboard****/
@@ -47,6 +59,7 @@ const fillInfo= ()=>{
         if(loadId !== currentLoadId || container.children.length > 1) return
         loader.style.display="none"
         container.append(img,message)
+        ensureBottomSpacer()
       }
 }
  /***generation des fiches*****/
@@ -168,6 +181,7 @@ const openExo=(data)=>{
           container.append(exos)
       }
       container.append(corrige)
+      ensureBottomSpacer()
       for (let i = 0; i < data["solution"].length; i++) {
           let prob = data["solution"][i]
           let sols = d.createElement('div')
@@ -183,6 +197,9 @@ const openExo=(data)=>{
           sols.append(head, body)
           corriges.push(sols)
           container.append(sols)
+
+          if(i===(data["solution"].length -1))
+                ensureBottomSpacer()
       }
       corrige.addEventListener("click",()=>{
           swapColors(corrige)
@@ -225,6 +242,7 @@ const openFiche=(data)=>{
           container.append(fiches)
       }
       container.append(apply)
+      ensureBottomSpacer()
       apply.addEventListener("click",()=>{
           click.currentTime = 0; click.play()
           swapColors(apply)
@@ -383,6 +401,7 @@ const QCM = (test) => {
   valider_block.innerHTML = ""
   valider_block.append(valider)
   container.append(big_block, valider_block)
+  ensureBottomSpacer()
 }
 /*===================APPAREIMENT==========*/
 const paire = (el) => {
@@ -511,6 +530,7 @@ valider_block.append(valider)
 container.append(text, block, valider_block);
 container.append(valider_block)
 block.append(block_A, block_B);
+ensureBottomSpacer()
 }
 /* ================== REARRANGEMENT ================== */
 const rearrangement = (test) => {
@@ -585,6 +605,7 @@ const rearrangement = (test) => {
   valider_block.innerHTML = ""
   valider_block.append(valider)
   container.append(text, result_block, propos_block, valider_block)
+  ensureBottomSpacer()
 }
 
 /* ================== ALTERNATIF ================== */
@@ -646,6 +667,7 @@ const alternatif = (tab) => {
   valider_block.append(valider)
   big_block.append(text,block)
   container.append(big_block, valider_block)
+  ensureBottomSpacer()
 }
 
 /* ================== NAVIGATION ================== */
@@ -724,7 +746,9 @@ for(let i=0; i<main.length ; i++){
          if(main[i].id==='exo-b')
          fillExo()
          else if(main[i].id==='fiche-b')
-         fillFiche()
+         fillFiche)
+         if(j===(elements-1))
+          ensureBottomSpacer()
      }
      }
    })
