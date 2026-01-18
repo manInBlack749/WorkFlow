@@ -8,7 +8,7 @@ html, body {
     box-sizing: border-box;
     overflow-x: hidden; /* juste horizontal */
     overflow-y: hidden; /* vertical limité au container */
-    background-color: red;
+    background-color: #fff;
 }
 
 /* ====== HEADER ====== */
@@ -24,7 +24,7 @@ html, body {
     padding: 2vh 2vw;
     z-index: 100;
     border-bottom: 3px solid #F2F2F2;
-    background-color: red;
+    background-color: #fff;
 }
 
 /* ====== FOOTER / NAV ====== */
