@@ -181,7 +181,7 @@ const openExo=(data)=>{
           container.append(exos)
       }
       container.append(corrige)
-      ensureBottomSpacer()
+      
       for (let i = 0; i < data["solution"].length; i++) {
           let prob = data["solution"][i]
           let sols = d.createElement('div')
@@ -197,10 +197,8 @@ const openExo=(data)=>{
           sols.append(head, body)
           corriges.push(sols)
           container.append(sols)
-
-          if(i===(data["solution"].length -1))
-                ensureBottomSpacer()
       }
+      ensureBottomSpacer()
       corrige.addEventListener("click",()=>{
           swapColors(corrige)
           for(let s of corriges)
@@ -746,10 +744,9 @@ for(let i=0; i<main.length ; i++){
          if(main[i].id==='exo-b')
          fillExo()
          else if(main[i].id==='fiche-b')
-         fillFiche)
-         if(j===(elements-1))
-          ensureBottomSpacer()
+         fillFiche()
      }
+         ensureBottomSpacer()
      }
    })
       
