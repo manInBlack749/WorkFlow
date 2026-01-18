@@ -22,14 +22,11 @@ const cut=(t)=>{
       }
 }
 const getLittle=(e)=>{
-      if(e.textContent.length <= 30) return
-      else{
-        e.style.fontSize="45px"
-      }
+       e.style.fontSize="1rem"
 }
 const short=(l)=>{
       if(l.textContent.length > 10)
-        l.style.fontSize="40px"
+        l.style.fontSize="1rem"
 }
 /******click sur bouton***/
 const click = new Audio("sound/click.mp3")
@@ -329,7 +326,6 @@ const QCM = (test) => {
 
   text.innerText = test.text
   getLittle(text)
-  text.className = "test-text"
   propos_block.className = "propos-block"
   big_block.className="big-propos"
   big_block.append(text,propos_block)
@@ -413,6 +409,7 @@ const appareiment = (tab) => {
   let level = tab.col_A.length;
   
   text.innerText = "Trouve les mots liés";
+  getLittle(text)
   
   block.className = "appar-bigBlock";
   block_A.className = "appar-block";
@@ -513,6 +510,7 @@ const rearrangement = (test) => {
   propos_block.className = "arrange-block"
   result_block.className = "arrange-result"
   text.innerText = test.text
+  getLittle(text)
 
   const createLine = () => {
     const line = d.createElement("div")
@@ -586,7 +584,7 @@ const alternatif = (tab) => {
   let vrai = d.createElement("button")
   let faux = d.createElement("button")
   let choice = null
-
+ 
   text.innerText = tab.text
   getLittle(text)
   vrai.innerText = "vrai"
