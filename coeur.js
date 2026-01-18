@@ -37,15 +37,14 @@ const fillInfo= ()=>{
       loader.style.display="block"
       let img= new Image("explose.png")
       let message=d.createElement("div")
-      
-      if(loadId!==currentLoadId) return
-      
+
       img.src="emoji/explose.png"
       message.innerText="cette section n'est pas dispo pour l'instant"
       
       img.className="result-img"
       message.className="dash-text"
       img.onload=()=>{
+        if(loadId !== currentLoadId) return
         loader.style.display="none"
         container.append(img,message)
       }
