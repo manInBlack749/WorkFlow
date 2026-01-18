@@ -9,6 +9,7 @@ const exit=d.getElementById('exit')
 const main=d.querySelectorAll('.nav')
 const icon=d.querySelectorAll('.main-icon')
 /****element des tests***/
+let currentLoadId=0
 let index 
 let score 
 /*****decoupe automatique****/
@@ -32,9 +33,12 @@ const short=(l)=>{
 const click = new Audio("sound/click.mp3")
 /**"""dashboard****/
 const fillInfo= ()=>{
+      const loadId= currentLoadId
       loader.style.display="block"
       let img= new Image("explose.png")
       let message=d.createElement("div")
+      
+      if(loadId!==currentLoadId) return
       
       img.src="emoji/explose.png"
       message.innerText="cette section n'est pas dispo pour l'instant"
@@ -48,6 +52,7 @@ const fillInfo= ()=>{
 }
  /***generation des fiches*****/
 const fillFiche= async () => {
+      const loadId= currentLoadId
       loader.style.display='block'
       let fiche_block = d.createElement('div')
       let block_1 = d.createElement('div')
@@ -58,6 +63,8 @@ const fillFiche= async () => {
       let plus = d.createElement('img')
       /*initialisation*/
       const data = await getData("data/fiche.json")
+      
+      if(loadId!==currentLoadId) return
       block_1.innerText =cut(data["title"])+" / "+data["matter"]
       
       state.innerText =data["apply"].length.toString()+ " questions"
@@ -87,6 +94,7 @@ const fillFiche= async () => {
     }
 /******generation des exos*****/
 const fillExo= async () => {
+      const loadId=currentLoadId
       loader.style.display='block'
       let exo_block = d.createElement('div')
       let block_1 = d.createElement('div')
@@ -98,6 +106,7 @@ const fillExo= async () => {
       /*initialisation*/
       const data= await getData("data/exo.json")
       console.log(data)
+      if(loadId !== currentLoadId) return
       block_1.innerText =cut(data["title"])+" / "+data["matter"]
       contry.innerText =data["contry"]
       level.innerText = data["level"]
@@ -656,6 +665,7 @@ quitter.onclick = () => {
 const loadResult = (score) => {
   reset()
   loader.style.display = "block"
+  const loadId=++currentLoadId
 
   const result = d.createElement("div")
   const img = new Image()
@@ -683,6 +693,7 @@ const loadResult = (score) => {
   }
 
   img.onload = () => {
+    if(loadId !== currentLoadId) return
     loader.style.display = "none"
     container.append(result, img, score_text, message, quitter)
     if (score > (total/2)) { completed.currentTime = 0; completed.play() }
@@ -704,6 +715,7 @@ for(let i=0; i<main.length ; i++){
      current=i
      //fonction
      reset()
+     currentLoadId++
      if(main[i].id==="user-b"){
        fillInfo()
      }else{
