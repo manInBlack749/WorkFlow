@@ -44,7 +44,7 @@ const fillInfo= ()=>{
       img.className="result-img"
       message.className="dash-text"
       img.onload=()=>{
-        if(loadId !== currentLoadId) return
+        if(loadId !== currentLoadId || container.children.length > 1) return
         loader.style.display="none"
         container.append(img,message)
       }
