@@ -742,11 +742,13 @@ for(let i=0; i<main.length ; i++){
      }else{
        for (let j = 0; j < elements; j++) {
          if(main[i].id==='exo-b')
-         fillExo()
+         await fillExo()
          else if(main[i].id==='fiche-b')
-         fillFiche()
+         await fillFiche()
+         if(j===(elements-1))
+           ensureBottomSpacer()  
      }
-         ensureBottomSpacer()
+         
      }
    })
       
