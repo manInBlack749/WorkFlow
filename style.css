@@ -55,7 +55,7 @@ html, body {
     align-items: center;
     overflow-y: auto;     /* scroll uniquement ici */
     padding: 2vh 2vw;
-    padding-bottom: 10rem;
+    padding-bottom: 10vh;
     box-sizing: border-box;
 }
 
