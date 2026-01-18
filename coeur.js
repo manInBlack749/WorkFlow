@@ -33,7 +33,7 @@ const short=(l)=>{
 const click = new Audio("sound/click.mp3")
 /**"""dashboard****/
 const fillInfo= ()=>{
-      const loadId= currentLoadId
+      const loadId=++currentLoadId
       loader.style.display="block"
       let img= new Image("explose.png")
       let message=d.createElement("div")
@@ -138,6 +138,7 @@ const fillExo= async () => {
 }
 /****ouverture des exos***/
 const openExo=(data)=>{
+      const loadId=++currentLoadId
       //creation 
       exit.style.display="flex"
       let title= d.createElement('div') 
@@ -194,6 +195,7 @@ const openExo=(data)=>{
 }
 /****ouverture des fiches***/
 const openFiche=(data)=>{
+      const loadId=++currentLoadId
       //creation 
       exit.style.display="flex"
       let save=d.createElement("div")
