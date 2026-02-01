@@ -373,7 +373,9 @@ html, body {
     .propos{ font-size: 4vw; width: 80%; }
     .corrige, .apply{ width: 30vw; height:50px; font-size: 1.2rem; }
 }
-
 @media screen and (min-height:800px){
-    .exo{height:10vh;}
+    .exo{height:12vh;}
+    .exo-title{min-height:20vh;}
+    .single-sol{min-height:30vh;}
+    .single-exo{min-height:18vh;}
 }
