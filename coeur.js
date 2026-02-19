@@ -3,12 +3,25 @@ const d = document
 d.addEventListener("DOMContentLoaded",()=>{
 
 const container = d.getElementById('container')
+
+const en_t= document.getElementById("en-t");
+const nav_b= document.getElementById("nav-b");
+
+const matter=d.getElementById("matter")
 const loader=d.getElementById('loader')
 const exit=d.getElementById('exit')
 /*button du menu*/
 const main=d.querySelectorAll('.nav')
 const icon=d.querySelectorAll('.main-icon')
+let current_mat=null
+/**** sous container****/
+
+const f_container = d.getElementById("f-container")
+const e_container = d.getElementById("e-container")
+let current_container = e_container
+
 /****element des tests***/
+
 let currentLoadId=0
 let index 
 let score 
@@ -32,25 +45,35 @@ const short=(l)=>{
       if(l.textContent.length > 10)
         l.style.fontSize="1rem"
 }
-const cleanContainerFor = (type) => {
-  // type = "fiche" ou "exo"
-  const children = Array.from(container.children);
-  for (let child of children) {
-    // Ignore loader, exit et spacer
-    if (child.id === "loader" || child.id === "exit" || child.dataset.bottomSpace) continue;
- 
-    if (type === "fiche" && child.id==="exo") {
-      // si c'est un exo, on le supprime
-      container.removeChild(child);
-    }
-    else if (type === "exo" && child.id==="fiche") {
-      // si c'est une fiche (non exo), on le supprime
-      container.removeChild(child);
-    }else if (child.classList.contains("result-img") || child.classList.contains("dash-text")){
-      container.removeChild(child);
-    }
+const selectColor = (div) => {
+  const text = div.textContent.trim().toLowerCase()
+  
+  let rgb
+  
+  if (text === "difficile") {
+    rgb = "248, 113, 113" // red
+  } else if (text === "moyen") {
+    rgb = "251, 191, 36" // yellow
+  } else if (text === "normale") {
+    rgb = "74, 222, 128" // green
+  } else {
+    rgb = "59, 130, 246" // blue
   }
-};
+  
+  // background semi-transparent
+  div.style.backgroundColor = `rgba(${rgb},0.25)`
+  
+  // texte 100 % opaque
+  div.style.webkitTextStroke = "0.4px rgba(0,0,0,0.35)"
+  div.style.color = `rgb(${rgb})`
+}
+/****netoyage****/
+const clearSubContainers = (type) => {
+      if(type==="exo")
+        e_container.innerHTML=""
+      else 
+        f_container.innerHTML=""
+}
 /******click sur bouton***/
 const click = new Audio("sound/click.mp3")
 /**"""dashboard****/
@@ -75,10 +98,11 @@ const fillInfo= ()=>{
 }
  /***generation des fiches*****/
 const fillFiche= async () => {
-      cleanContainerFor("fiche")
+      clearSubContainers("fiche")
       loadId=currentLoadId
       loader.style.display='block'
       let fiche_block = d.createElement('div')
+      let lil_container=d.createElement('div')
       let block_1 = d.createElement('div')
       let block_2 = d.createElement('div')
       let state = d.createElement('div')
@@ -108,7 +132,7 @@ const fillFiche= async () => {
       plus_b.appendChild(plus)
       block_2.append(state, date, plus_b)
       fiche_block.append(block_1, block_2)
-      container.appendChild(fiche_block)
+      f_container.appendChild(fiche_block)
       
       fiche_block.addEventListener("click",()=>{ click.currentTime=0;
                click.play()
@@ -121,7 +145,7 @@ const fillFiche= async () => {
     }
 /******generation des exos*****/
 const fillExo= async () => {
-      cleanContainerFor("exo")
+      clearSubContainers("exo")
       loadId=currentLoadId
       loader.style.display='block'
       let exo_block = d.createElement('div')
@@ -148,18 +172,20 @@ const fillExo= async () => {
       block_2.classList.add('info')
       contry.classList.add('contry')
       level.classList.add('level')
+      selectColor(level)
       plus_b.classList.add('but')
       plus.classList.add('icon', 'option')
      /*imbrication*/
       plus_b.appendChild(plus)
       block_2.append(contry, level, plus_b)
       exo_block.append(block_1, block_2)
-      container.appendChild(exo_block)
+      e_container.appendChild(exo_block)
       
      /*fonction*/
       exo_block.addEventListener("click",()=>{ click.currentTime = 0;
                click.play()
                reset()
+               context_reset(2)
                openExo(data)
                MathJax.typesetPromise([container])
       })
@@ -169,6 +195,7 @@ const fillExo= async () => {
 }
 /****ouverture des exos***/
 const openExo=(data)=>{
+      container.scrollTop=0
       const loadId=++currentLoadId
       //creation 
       exit.style.display="flex"
@@ -203,27 +230,538 @@ const openExo=(data)=>{
       for (let i = 0; i < data["solution"].length; i++) {
           let prob = data["solution"][i]
           let sols = d.createElement('div')
+          let wrapSols=d.createElement('div')
           let head = d.createElement('div')
           let body = d.createElement('div')
+          
+          let scroll=d.createElement("div")
+          let indice=d.createElement("div")
          // let sep = d.createElement('div')
           head.innerHTML = prob["head"]
           body.innerHTML = "<br>" + prob["body"]
           //sep.innerHTML = "<br><hr>"
           sols.classList.add("single-exo","single-sol")
           head.classList.add("exo-head")
+          body.classList.add("sol-content")
+          wrapSols.classList.add("sol-scroll")
+          scroll.classList.add("scroll")
+          indice.classList.add("indice")
+          
+          wrapSols.append(body)
+          scroll.append(indice)
+          sols.append(head, wrapSols)
+          if (prob.plot || prob.geo) {
   
-          sols.append(head, body)
+  // container principal
+             const graphBox = d.createElement("div")
+             graphBox.className = "graph-box"
+             const canvas = d.createElement("canvas")
+             canvas.className = "graph"
+   // layer flou
+             const flot_lay = d.createElement("div")
+             flot_lay.className = "graph-flot"
+   // bouton
+             const voir = d.createElement("button")
+             voir.className = "graph-btn"
+             voir.textContent = "Voir"
+             flot_lay.appendChild(voir)
+           voir.addEventListener("click", () => {
+              click.play() 
+              currentTime=0
+               // fond sombre
+              const full = d.createElement("div")
+              full.className = "full-graph"
+              // boite blanche
+              const box = d.createElement("div")
+              box.className = "full-box"
+             // bouton fermer
+              const close = d.createElement("button")
+              close.className = "close-full"
+              close.innerText = "✕"
+              
+              close.onclick = () => full.remove()
+             //canvas (clone)
+              const bigCanvas = d.createElement("canvas")
+              bigCanvas.style.width = "90%"
+              bigCanvas.style.height = "90%"
+              box.append(close, bigCanvas)
+              full.append(box)
+              d.body.append(full)
+             // redraw courbe en grand
+             if(prob.plot)
+             drawGraph(bigCanvas, prob.plot)
+             else
+             drawGeo(bigCanvas, prob.geo)
+          
+        })
+  
+  // assembler
+             graphBox.appendChild(canvas)
+             graphBox.appendChild(flot_lay)
+             sols.appendChild(graphBox)
+
+  // draw graph
+             drawGraph(canvas, prob.plot)
+}
+          sols.append(scroll)
           corriges.push(sols)
           container.append(sols)
       }
+      
+      MathJax.typesetPromise().then(() => {
+  
+  const wrappers = d.querySelectorAll(".sol-scroll")
+  
+  wrappers.forEach(w => {
+    const content = w.querySelector(".sol-content")
+    const indice = w.parentElement.querySelector(".indice")
+    const scrollBar = w.parentElement.querySelector(".scroll")
+    
+    const updateAll = () => {
+      
+      /* ===== effet ChatGPT fade ===== */
+      updateScrollFade(w)
+      
+      /* ===== déplacement boule ===== */
+      const maxScroll = content.scrollWidth - content.clientWidth
+      const current = content.scrollLeft
+      
+      if (maxScroll <= 0) {
+        indice.style.opacity = "0"
+        return
+      } else {
+        indice.style.opacity = "1"
+      }
+      
+      const ratio = current / maxScroll
+      
+      const barWidth = scrollBar.clientWidth
+      const dotSize = indice.clientWidth
+      
+      const pos = ratio * (barWidth - dotSize)
+      
+      indice.style.transform = `translateX(${pos}px)`
+    }
+    
+    updateAll()
+    content.addEventListener("scroll", updateAll)
+    window.addEventListener("resize", updateAll)
+  })
+  
+})
       corrige.addEventListener("click",()=>{
           swapColors(corrige)
           for(let s of corriges)
              s.style.display=
-             (s.style.display === "block") ? "none" :"block"
+             (s.style.display === "flex") ? "none" :"flex"
       })
  
 }
+/*scroll dans block*/
+function updateScrollFade(wrapper) {
+  const content = wrapper.querySelector(".sol-content")
+  
+  const maxScroll = content.scrollWidth - content.clientWidth
+  const current = content.scrollLeft
+  
+  // gauche
+  if (current > 2) {
+    wrapper.classList.add("show-left")
+  } else {
+    wrapper.classList.remove("show-left")
+  }
+  
+  // droite
+  if (current < maxScroll - 2) {
+    wrapper.classList.add("show-right")
+  } else {
+    wrapper.classList.remove("show-right")
+  }
+}
+/*** dessiner une courbe ***/
+function drawGraph(canvas, funcString) {
+  
+  setTimeout(() => {
+    
+    canvas.width = 300
+    canvas.height = 300
+    
+    const ctx = canvas.getContext("2d")
+    
+    const width = canvas.width
+    const height = canvas.height
+    
+    const originX = width / 2
+    const originY = height / 2
+    const scale = Math.min(width, height) / 12
+    const maxVal = 5
+    
+    ctx.clearRect(0, 0, width, height)
+    
+    /* ===== GRILLE ===== */
+    ctx.strokeStyle = "#e0e0e0"
+    ctx.lineWidth = 1
+    
+    for (let x = -maxVal; x <= maxVal; x++) {
+      ctx.beginPath()
+      ctx.moveTo(originX + x * scale, 0)
+      ctx.lineTo(originX + x * scale, height)
+      ctx.stroke()
+    }
+    
+    for (let y = -maxVal; y <= maxVal; y++) {
+      ctx.beginPath()
+      ctx.moveTo(0, originY - y * scale)
+      ctx.lineTo(width, originY - y * scale)
+      ctx.stroke()
+    }
+    
+    /* ===== AXES ===== */
+    ctx.strokeStyle = "#000"
+    ctx.lineWidth = 2
+    
+    ctx.beginPath()
+    ctx.moveTo(0, originY)
+    ctx.lineTo(width, originY)
+    ctx.stroke()
+    
+    ctx.beginPath()
+    ctx.moveTo(originX, 0)
+    ctx.lineTo(originX, height)
+    ctx.stroke()
+    
+    /* ===== NUMEROS ===== */
+    ctx.fillStyle = "#000"
+    ctx.font = "12px Arial"
+    
+    ctx.textAlign = "right"
+    ctx.textBaseline = "middle"
+    
+    for (let y = -maxVal; y <= maxVal; y++) {
+      if (y === 0) continue
+      ctx.fillText(y, originX - 8, originY - y * scale)
+    }
+    
+    ctx.textAlign = "center"
+    ctx.textBaseline = "top"
+    
+    for (let x = -maxVal; x <= maxVal; x++) {
+      if (x === 0) continue
+      ctx.fillText(x, originX + x * scale, originY + 6)
+    }
+    
+    ctx.fillText("O", originX - 5, originY + 5)
+    
+    /* ===== fonction ===== */
+    let f
+    try {
+      f = new Function("x", "return " + funcString)
+    } catch (e) {
+      console.log("Erreur fonction")
+      return
+    }
+    
+    /* ===== courbe ===== */
+    ctx.strokeStyle = "#2563eb"
+    ctx.lineWidth = 2
+    ctx.beginPath()
+    
+    let first = true
+    
+    for (let px = 0; px < width; px++) {
+      
+      let x = (px - originX) / scale
+      let y
+      
+      try {
+        y = f(x)
+      } catch {
+        continue
+      }
+      
+      if (!isFinite(y)) continue
+      
+      let py = originY - y * scale
+      
+      if (first) {
+        ctx.moveTo(px, py)
+        first = false
+      } else {
+        ctx.lineTo(px, py)
+      }
+    }
+    
+    ctx.stroke()
+    
+  }, 100)
+}
+/***figure geometrique****/
+function drawLabel(ctx, text, x, y, dx = 6, dy = -6) {
+  ctx.fillStyle = "#000"
+  ctx.font = "13px Arial"
+  ctx.fillText(text, x + dx, y + dy)
+}
+function smartLabel(ctx, text, px, py, originX, originY) {
+  
+  ctx.fillStyle = "#000"
+  ctx.font = "13px Arial"
+  
+  let dx = 6
+  let dy = -6
+  
+  // gauche
+  if (px < originX) dx = -12
+  
+  // droite
+  if (px > originX) dx = 6
+  
+  // haut
+  if (py < originY) dy = -6
+  
+  // bas
+  if (py > originY) dy = 14
+  
+  ctx.fillText(text, px + dx, py + dy)
+}
+function drawGrid(ctx, width, height, originX, originY, scale) {
+  ctx.strokeStyle = "#ddd"
+  ctx.lineWidth = 1
+  
+  ctx.beginPath()
+  
+  // verticales
+  for (let x = originX % scale; x < width; x += scale) {
+    ctx.moveTo(x, 0)
+    ctx.lineTo(x, height)
+  }
+  
+  // horizontales
+  for (let y = originY % scale; y < height; y += scale) {
+    ctx.moveTo(0, y)
+    ctx.lineTo(width, y)
+  }
+  
+  ctx.stroke()
+}
+
+function drawGeo(canvas, plotData) {
+  setTimeout(() => {
+    canvas.width = 320
+    canvas.height = 320
+    const ctx = canvas.getContext("2d")
+
+    const w = canvas.width
+    const h = canvas.height
+
+    const originX = w / 2
+    const originY = h / 2
+    const scale = w / 12
+
+    ctx.clearRect(0, 0, w, h)
+    /// grille
+    drawGrid(ctx,canvas.width,canvas.height,originX,originY,scale)
+
+    //// ===== AXES =====
+    ctx.strokeStyle = "#000"
+    ctx.lineWidth = 2
+
+    ctx.beginPath()
+    ctx.moveTo(0, originY)
+    ctx.lineTo(w, originY)
+    ctx.stroke()
+
+    ctx.beginPath()
+    ctx.moveTo(originX, 0)
+    ctx.lineTo(originX, h)
+    ctx.stroke()
+
+    //// ===== OBJETS =====
+    const pts = {}
+
+    ctx.font = "12px Arial"
+    ctx.fillStyle = "#000"
+
+    for (let obj of plotData.objects) {
+
+      //// POINT
+      if (obj.type === "point") {
+         pts[obj.name] = { x: obj.x, y: obj.y }
+  
+         let px = originX + obj.x * scale
+         let py = originY - obj.y * scale
+  
+         ctx.fillStyle = "#000"
+         ctx.beginPath()
+         ctx.arc(px, py, 4, 0, Math.PI * 2)
+         ctx.fill()
+  
+         if (obj.label) {
+            smartLabel(ctx, obj.label, px, py, originX, originY)
+          }
+       }
+
+      //// SEGMENT
+      if (obj.type === "segment") {
+         let A = pts[obj.from]
+         let B = pts[obj.to]
+
+         let x1 = originX + A.x*scale
+         let y1 = originY - A.y*scale
+         let x2 = originX + B.x*scale
+         let y2 = originY - B.y*scale
+
+         ctx.strokeStyle="#000"
+         ctx.beginPath()
+         ctx.moveTo(x1,y1)
+         ctx.lineTo(x2,y2)
+         ctx.stroke()
+
+       if (obj.label) {
+  
+  // milieu du vecteur
+  let mx = (x1 + x2) / 2
+  let my = (y1 + y2) / 2
+  
+  // décalage perpendiculaire (très important)
+  let dx = x2 - x1
+  let dy = y2 - y1
+  let len = Math.sqrt(dx * dx + dy * dy)
+  
+  if (len !== 0) {
+    dx /= len
+    dy /= len
+  }
+  
+  // perpendiculaire
+  let offsetX = -dy * 14
+  let offsetY = dx * 14
+  
+  smartLabel(
+    ctx,
+    obj.label,
+    mx + offsetX,
+    my + offsetY,
+    originX,
+    originY
+  )
+}
+   }
+// CERCLE 
+
+if (obj.type === "circle") {
+   let cx=originX+obj.center[0]*scale
+   let cy=originY-obj.center[1]*scale
+   let r=obj.r*scale
+
+   ctx.strokeStyle="#007bff"
+   ctx.beginPath()
+   ctx.arc(cx,cy,r,0,Math.PI*2)
+   ctx.stroke()
+
+   if (obj.label) {
+   smartLabel(ctx, obj.label,
+    originX + obj.center[0] * scale,
+    originY - obj.center[1] * scale - obj.r * scale,
+    originX, originY)
+}
+
+}
+//VECTEUR
+
+if(obj.type==="vector"){
+   let A=obj.from
+   let B=obj.to
+
+   let x1=originX+A[0]*scale
+   let y1=originY-A[1]*scale
+   let x2=originX+B[0]*scale
+   let y2=originY-B[1]*scale
+
+   ctx.strokeStyle="rgb(74, 222, 128)"
+   ctx.beginPath()
+   ctx.moveTo(x1,y1)
+   ctx.lineTo(x2,y2)
+   ctx.stroke()
+
+  if (obj.label) {
+  
+  // milieu du vecteur
+  let mx = (x1 + x2) / 2
+  let my = (y1 + y2) / 2
+  
+  // décalage perpendiculaire (très important)
+  let dx = x2 - x1
+  let dy = y2 - y1
+  let len = Math.sqrt(dx * dx + dy * dy)
+  
+  if (len !== 0) {
+    dx /= len
+    dy /= len
+  }
+  
+  // perpendiculaire
+  let offsetX = -dy * 14
+  let offsetY = dx * 14
+  
+  smartLabel(
+    ctx,
+    obj.label,
+    mx + offsetX,
+    my + offsetY,
+    originX,
+    originY
+  )
+}
+}
+//ELLIPSE
+
+if(obj.type==="ellipse"){
+   let cx=originX+obj.x*scale
+   let cy=originY-obj.y*scale
+
+   ctx.strokeStyle="#FF3333"
+   ctx.beginPath()
+   ctx.ellipse(cx,cy,obj.rx*scale,obj.ry*scale,obj.rotation||0,0,Math.PI*2)
+   ctx.stroke()
+
+  if (obj.label) {
+  smartLabel(ctx, obj.label,
+    originX + obj.x * scale,
+    originY - obj.y * scale - obj.ry * scale,
+    originX, originY)
+}
+}
+//COURBE
+
+if(obj.type==="curve"){
+   let f=new Function("x","return "+obj.func)
+
+   ctx.strokeStyle="#007bff"
+   ctx.beginPath()
+
+   let first=true
+   for(let px=-w/2;px<w/2;px++){
+      let x=px/scale
+      let y=f(x)
+
+      let cx=originX+px
+      let cy=originY-y*scale
+
+      if(first){ctx.moveTo(cx,cy);first=false}
+      else ctx.lineTo(cx,cy)
+   }
+   ctx.stroke()
+
+   if(obj.label){
+      smartLabel(ctx,obj.label,originX+w/4,originY-h/4,0,0)
+   }
+}
+
+    }
+
+  }, 60)
+}
+
 /****ouverture des fiches***/
 const openFiche=(data)=>{
        const loadId=++currentLoadId
@@ -273,7 +811,7 @@ let valider_block = d.createElement("div")
 let resultText = d.createElement("p")
 let text = d.createElement("div")
 
-/**** 🔊 SONS ****/
+/**** 🔊 SONS **/
 const good = new Audio("sound/good.wav")
 const bad = new Audio("sound/bad.wav")
 const select = new Audio("sound/select.wav")
@@ -302,7 +840,7 @@ resultText.className = "result-text"
 /* ================== UTILS ================== */
 const choose = (el, i) => {
   if (!el) return
-  el.style.backgroundColor = i === 1 ? "#25E7EF" : "#fff"
+  el.style.backgroundColor = i === 1 ? "#5AEAF6" : "#fff"
   el.style.color = i === 1 ? "#fff" : "#000"
 }
 const clearContainer = () => {
@@ -730,13 +1268,14 @@ const loadResult = (score) => {
     loader.style.display = "none"
     container.append(result, img, score_text, message, quitter)
     if (score > (total/2)) { completed.currentTime = 0; completed.play() }
-    else{completed.currentTime = 0; bad.play()}// 🔊
+    else{completed.currentTime = 0; bad.play()}
     }
   }
 }
 
 loadTest(currentTest[index++])
 }
+
 /****bouton du menu******/
 let current=null
 for(let i=0; i<main.length ; i++){
@@ -752,13 +1291,19 @@ for(let i=0; i<main.length ; i++){
      currentLoadId++
      if(main[i].id==="user-b"){
        fillInfo()
-     }else{
-       for (let j = 0; j < elements; j++) {
-         if(main[i].id==='exo-b')
-         fillExo()
-         else if(main[i].id==='fiche-b')
-         fillFiche()
-     }
+     }else if(main[i].id==='exo-b'){
+          container.append(e_container)
+          current_container=e_container
+          for (let j = 0; j < elements; j++){
+               fillExo()
+          }
+     }else if(main[i].id==='fiche-b'){
+           container.append(f_container)
+           current_container=f_container
+          for (let j = 0; j < elements; j++){
+            fillFiche()
+          }
+         
      }
    })
       
@@ -772,15 +1317,21 @@ const anim_menu=(main,icon,i)=>{
          icon.src = icon.src.replace('full-icon', 'icon')
 }
 }
-const reset=()=>{
-      exit.style.display="none"
-      while (container.firstChild) {
-           container.removeChild(container.firstChild);
-      }
-      container.append(loader,exit)
-      container.scrollTop = 0;
-      
+/*****Reset*******/
+const reset = () => {
+  container.innerHTML=""
+  exit.style.display = "none"
+  container.append(loader, exit)
+  current_container.scrollTop = 0
 }
+const context_reset=(i)=>{
+      if(i===1){
+        d.body.classList.remove("exo-open")
+      }else{
+        d.body.classList.add("exo-open")
+      }
+}
+/******chagment dr couleurs****/
 const swapColors= (elem)=>{
       const styles = getComputedStyle(elem)
       const cl=styles.color
@@ -814,6 +1365,7 @@ const getData= async(route,id)=>{
 exit.onclick=()=>{
      click.currentTime = 0;click.play()
      exit.style.display="none"
+     context_reset(1)
      if(main[current] !== null)
      main[current].click()
 }
@@ -823,3 +1375,32 @@ for (let i of main) {
 }
 })
 
+let current_mat=undefined
+Array.from(matter.children).map(c=>{
+    c.addEventListener("click",()=>{
+      console.log("ok ça entre")
+      if(current_mat){
+         current_mat.style.color="#000"
+         current_mat.style.backgroundColor="#fff"
+      }
+
+      current_mat=c
+      current_mat.style.color="#fff"
+      current_mat.style.backgroundColor="#000"
+      current_mat.style.border="none"
+    })
+    if(c.textContent==="Tous")
+       c.click()
+})
+
+function setAppHeight() {
+  const vh = window.innerHeight * 0.01;
+  document.d.Element.style.setProperty('--vh', `${vh}px`);
+}
+
+setAppHeight();
+window.addEventListener('resize', setAppHeight);
+
+
+
+/*******app******/
