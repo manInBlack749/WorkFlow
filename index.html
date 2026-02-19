@@ -12,21 +12,33 @@
 </head>
 
 <body>
-  <div id="en-t" class="box">
-       <div id="logo">
-        work<span class="flow">FLOW</span>
-       </div>
-       <button class="but search">
-             <img src="icon/search.svg" class="icon">
-       </button>
-       <button class="but param">
+  <div id="layer"></div>
+   <div id="en-t" class="box">
+       <div class="search-bar">
+         <img class="icon" src="icon/search.svg">
+         <input type="search" class="search" placeholder="recherche">
+        </div>
+       <!--<button class="but param">
               <img src="icon/gear.png" class="icon">
-       </button>
+       </button>-->
+       <div id="blur-clone"></div>
+       <div id="matter">
+        <button class="but mat">Tous</button>
+        <button class="but mat">Math</button>
+        <button class="but mat">Pc</button>
+        <button class="but mat">svt</button>
+        </div>
   </div>
-  <div id="container" class="box">
-     <div id="loader"></div>
-     <button id="exit">X</button></button>
-  </div>  
+   <div id="container">
+        <div id="loader"></div>
+        <button id="exit">X</button>
+        <div id="e-container" class="lil-container">
+             <!-- contenu -->
+        </div>
+       <div id="f-container" class="lil-container">
+             <!-- autre vue -->
+       </div>
+   </div>
   <div id="nav-b" class="box">
        <button class="nav main" id="user-b">
          <img src="icon/user.svg" class="icon main-icon">
@@ -52,5 +64,6 @@
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
 </html>
