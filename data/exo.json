@@ -1,83 +1,87 @@
 [
   {
-  "title": "Bac C 2023",
-  "matter": "Math",
-  "contry": "Congo 🇨🇬",
-  "level": "difficile",
-  "id": "CG-BAC-2023-CPLX",
-  "body": [
-    {
-      "head": "Introduction aux nombres complexes",
-      "body": "Un nombre complexe est un nombre de la forme z = a + bi, où a et b sont réels et i² = −1. Les nombres complexes permettent de résoudre des équations impossibles dans R et modélisent des rotations et transformations sur le plan."
-    },
-    {
-      "head": "Module et argument",
-      "body": "Le module d’un nombre complexe z = a + bi est |z| = √(a² + b²). L’argument arg(z) est l’angle que fait la représentation vectorielle de z avec l’axe réel. Il est utilisé pour représenter z sous forme trigonométrique : z = |z|(cos θ + i sin θ)."
-    },
-    {
-      "head": "Forme trigonométrique et exponentielle",
-      "body": "La forme trigonométrique est utile pour les multiplications et divisions : z₁z₂ = |z₁||z₂|[cos(θ₁+θ₂)+i sin(θ₁+θ₂)]. La forme exponentielle z = |z| e^(iθ) simplifie les puissances et racines : z^n = |z|^n e^(inθ)."
-    },
-    {
-      "head": "Transformations dans le plan",
-      "body": "Un nombre complexe peut représenter une transformation du plan : translation, rotation ou homothétie. Par exemple, multiplier par e^(iθ) correspond à une rotation de θ autour de l’origine, et ajouter un complexe correspond à une translation."
-    },
-    {
-      "head": "Applications pratiques",
-      "body": "Les nombres complexes servent à l’étude des signaux, oscillations, et géométrie analytique. Comprendre leurs opérations et représentations est crucial pour résoudre des problèmes de trigonométrie, de géométrie et de physique mathématique."
-    }
-  ],
-  "problem": [
-    {
-      "head": "Exercice 1 — Nombres complexes",
-      "id": "exo1",
-      "body": "Soit z = 3 + 4i et w = 1 − 2i.\n\nQuestions :\n1. Calculer z + w.\n2. Calculer z × w.\n3. Calculer le module et l’argument de z.\n4. Écrire z sous forme trigonométrique."
-    },
-    {
-      "head": "Exercice 2 — Puissance et racines",
-      "id": "exo2",
-      "body": "On considère z = 1 + i.\n\nQuestions :\n1. Calculer z² et z³.\n2. Déterminer |z| et arg(z).\n3. Écrire z^4 sous forme trigonométrique."
-    },
-    {
-      "head": "Exercice 3 — Transformations du plan",
-      "id": "exo3",
-      "body": "On représente un point M par z = 2 + i.\n\nQuestions :\n1. Calculer l’image de M par la translation de vecteur w = 1 − i.\n2. Calculer l’image de M par une rotation de π/2 autour de l’origine.\n3. Calculer l’image de M par l’homothétie de rapport 2."
-    },
-    {
-      "head": "Exercice 4 — Applications combinées",
-      "id": "exo4",
-      "body": "On considère z₁ = 1 + i et z₂ = −1 + i.\n\nQuestions :\n1. Déterminer z₁ + z₂ et z₁ − z₂.\n2. Calculer z₁ × z₂ et z₁ / z₂.\n3. Tracer les points correspondants sur le plan complexe."
-    }
-  ],
-  "solution": [
-    {
-      "head": "Corrigé Exercice 1",
-      "problemId": "exo1",
-      "body": "z + w = (3+1) + (4−2)i = 4 + 2i\nz × w = (3+4i)(1−2i) = 3 − 6i + 4i − 8i² = 11 − 2i\n|z| = √(3²+4²) = 5\narg(z) = arctan(4/3) ≈ 53,13°\nForme trigonométrique : z = 5 (cos53,13° + i sin53,13°)"
-    },
-    {
-      "head": "Corrigé Exercice 2",
-      "problemId": "exo2",
-      "body": "z² = (1+i)² = 1 + 2i + i² = 2i\nz³ = z² × z = 2i × (1+i) = 2i + 2i² = −2 + 2i\n|z| = √2\narg(z) = π/4\nz⁴ = (z²)² = (2i)² = −4"
-    },
-    {
-      "head": "Corrigé Exercice 3",
-      "problemId": "exo3",
-      "body": "Translation : z + w = (2+i) + (1−i) = 3 + 0i\nRotation π/2 : z × e^(iπ/2) = (2+i) × i = 2i − 1 = −1 + 2i\nHomothétie de rapport 2 : z × 2 = 4 + 2i"
-    },
-    {
-      "head": "Corrigé Exercice 4",
-      "problemId": "exo4",
-      "body": "z₁ + z₂ = (1−1) + (1+1)i = 0 + 2i\nz₁ − z₂ = (1+1) + (1−1)i = 2 + 0i\nz₁ × z₂ = (1+i)(−1+i) = −1 + i − i + i² = −2\nz₁ / z₂ = (1+i)/(−1+i) × (−1−i)/(−1−i) = (−1−i + −i−i²)/((−1)²+1²) = (−2i)/2 = −i"
-    }
-  ]
-},
+    "title": "Bac C 2023",
+    "matter": "Math",
+    "contry": "Congo 🇨🇬",
+    "level": "difficile",
+    "id": "CG-BAC-2023-CPLX",
+
+    "body": [
+      {
+        "head": "Introduction aux nombres complexes",
+        "body": "Un nombre complexe est un nombre de la forme :\n\nz = a + bi\n\noù a et b sont réels et i² = −1.\n\nLes nombres complexes permettent de résoudre des équations impossibles dans ℝ et modélisent des rotations et transformations sur le plan."
+      },
+      {
+        "head": "Module et argument",
+        "body": "Le module d’un nombre complexe z = a + bi est :\n\n|z| = √(a² + b²)\n\nL’argument arg(z) est l’angle que fait la représentation vectorielle de z avec l’axe réel.\n\nIl est utilisé pour représenter z sous forme trigonométrique :\n\nz = |z|(cos θ + i sin θ)."
+      },
+      {
+        "head": "Forme trigonométrique et exponentielle",
+        "body": "La forme trigonométrique est utile pour les multiplications et divisions :\n\nz₁z₂ = |z₁||z₂|[cos(θ₁+θ₂) + i sin(θ₁+θ₂)].\n\nLa forme exponentielle est :\n\nz = |z| e^(iθ)\n\nElle simplifie les puissances et racines :\n\nzⁿ = |z|ⁿ e^(inθ)."
+      },
+      {
+        "head": "Transformations dans le plan",
+        "body": "Un nombre complexe peut représenter une transformation du plan :\n\n• translation\n• rotation\n• homothétie\n\nPar exemple :\n\n• Multiplier par e^(iθ) correspond à une rotation de θ autour de l’origine.\n• Ajouter un complexe correspond à une translation."
+      },
+      {
+        "head": "Applications pratiques",
+        "body": "Les nombres complexes servent à l’étude :\n\n• des signaux\n• des oscillations\n• de la géométrie analytique\n\nComprendre leurs opérations et représentations est crucial pour résoudre des problèmes de trigonométrie, de géométrie et de physique mathématique."
+      }
+    ],
+
+    "problem": [
+      {
+        "head": "Exercice 1 — Nombres complexes",
+        "id": "exo1",
+        "body": "Soit :\n\nz = 3 + 4i\nw = 1 − 2i\n\nQuestions :\n\n1) Calculer z + w.\n\n2) Calculer z × w.\n\n3) Calculer le module et l’argument de z.\n\n4) Écrire z sous forme trigonométrique."
+      },
+      {
+        "head": "Exercice 2 — Puissance et racines",
+        "id": "exo2",
+        "body": "On considère :\n\nz = 1 + i\n\nQuestions :\n\n1) Calculer z².\n\n2) Calculer z³.\n\n3) Déterminer |z|.\n\n4) Déterminer arg(z).\n\n5) Écrire z⁴ sous forme trigonométrique."
+      },
+      {
+        "head": "Exercice 3 — Transformations du plan",
+        "id": "exo3",
+        "body": "On représente un point M par :\n\nz = 2 + i\n\nQuestions :\n\n1) Calculer l’image de M par la translation de vecteur :\n\nw = 1 − i.\n\n2) Calculer l’image de M par une rotation de π/2 autour de l’origine.\n\n3) Calculer l’image de M par l’homothétie de rapport 2."
+      },
+      {
+        "head": "Exercice 4 — Applications combinées",
+        "id": "exo4",
+        "body": "On considère :\n\nz₁ = 1 + i\nz₂ = −1 + i\n\nQuestions :\n\n1) Déterminer z₁ + z₂.\n\n2) Déterminer z₁ − z₂.\n\n3) Calculer z₁ × z₂.\n\n4) Calculer z₁ / z₂.\n\n5) Tracer les points correspondants sur le plan complexe."
+      }
+    ],
+
+    "solution": [
+      {
+        "head": "Corrigé Exercice 1",
+        "problemId": "exo1",
+        "body": "Addition :\n\nz + w = (3 + 1) + (4 − 2)i = 4 + 2i\n\nMultiplication :\n\nz × w = (3 + 4i)(1 − 2i)\n= 3 − 6i + 4i − 8i²\n= 11 − 2i\n\nModule :\n\n|z| = √(3² + 4²) = 5\n\nArgument :\n\narg(z) = arctan(4 / 3) ≈ 53,13°\n\nForme trigonométrique :\n\nz = 5 (cos 53,13° + i sin 53,13°)"
+      },
+      {
+        "head": "Corrigé Exercice 2",
+        "problemId": "exo2",
+        "body": "Calculs :\n\nz² = (1 + i)² = 1 + 2i + i² = 2i\n\nz³ = z² × z = 2i(1 + i)\n= 2i + 2i² = −2 + 2i\n\nModule :\n\n|z| = √2\n\nArgument :\n\narg(z) = π/4\n\nPuissance :\n\nz⁴ = (z²)² = (2i)² = −4"
+      },
+      {
+        "head": "Corrigé Exercice 3",
+        "problemId": "exo3",
+        "body": "Translation :\n\nz + w = (2 + i) + (1 − i) = 3 + 0i\n\nRotation de π/2 :\n\nz × e^(iπ/2) = (2 + i) × i = −1 + 2i\n\nHomothétie de rapport 2 :\n\n2z = 4 + 2i"
+      },
+      {
+        "head": "Corrigé Exercice 4",
+        "problemId": "exo4",
+        "body": "Somme :\n\nz₁ + z₂ = (1 − 1) + (1 + 1)i = 2i\n\nDifférence :\n\nz₁ − z₂ = (1 + 1) + (1 − 1)i = 2\n\nProduit :\n\nz₁ × z₂ = (1 + i)(−1 + i)\n= −1 + i − i + i² = −2\n\nQuotient :\n\nz₁ / z₂ = (1 + i)/(−1 + i)\n× (−1 − i)/(−1 − i)\n= −i"
+      }
+    ]
+  },
+
 
   {
   "title": "Bac C 2024",
   "matter": "Math",
   "contry": "Congo 🇨🇬",
-  "level": "difficile",
+  "level": "moyen",
   "id": "CG-BAC-2024-ANA",
   "problem": [
     {
@@ -193,7 +197,7 @@
   "title": "Baccalauréat Scientifique",
   "matter": "Math",
   "contry": "Cameroun 🇨🇲",
-  "level": "difficile",
+  "level": "normale",
   "id": "CG-BAC-2023-FCT",
   "problem": [
     {
@@ -235,7 +239,7 @@
   "title": "Concours Scientifique",
   "matter": "Math",
   "contry": "Sénégal 🇸🇳",
-  "level": "moyen",
+  "level": "normale",
   "id": "CG-BAC-2022-STAT",
   "problem": [
     {
@@ -274,44 +278,216 @@
 },
 
   {
- "title": "Bac Scientifique",
- "matter": "Math",
- "contry": "Maroc 🇲🇦",
- "level": "difficile",
+  "title": "Bac Scientifique",
+  "matter": "Math",
+  "contry": "Maroc 🇲🇦",
+  "level": "normale",
   "id": "CG-BAC-2021-FCT",
+
   "problem": [
     {
       "head": "Exercice 1 — Étude de fonction",
       "id": "exo1",
-      "body": "On considère la fonction f définie par :\n\nf(x) = x³ − 3x + 1\n\nQuestions :\n1. Calculer la dérivée de f.\n2. Étudier le sens de variation de f.\n3. Déterminer les extremums de f.\n4. Résoudre graphiquement l’équation f(x) = 0 (valeurs approchées)."
+      "body": "On considère la fonction \\( f \\) définie par :\n\n\\[\nf(x) = x^3 - 3x + 1\n\\]\n\nQuestions :\n\n1. Calculer la dérivée de \\( f \\).\n\n2. Étudier le sens de variation de \\( f \\).\n\n3. Déterminer les extremums de \\( f \\).\n\n4. Résoudre graphiquement l’équation \\( f(x) = 0 \\) (valeurs approchées)."
     },
     {
       "head": "Exercice 2 — Fonction polynomiale",
       "id": "exo2",
-      "body": "On considère g(x) = x⁴ − 4x² + 2\n\nQuestions :\n1. Calculer la dérivée g'(x).\n2. Étudier les variations de g.\n3. Déterminer les maximums et minimums locaux.\n4. Résoudre g(x) = 0 graphiquement."
+      "body": "On considère la fonction \\( g \\) définie par :\n\n\\[\ng(x) = x^4 - 4x^2 + 2\n\\]\n\nQuestions :\n\n1. Calculer la dérivée \\( g'(x) \\).\n\n2. Étudier les variations de \\( g \\).\n\n3. Déterminer les maximums et minimums locaux.\n\n4. Résoudre graphiquement l’équation \\( g(x) = 0 \\)."
     },
     {
       "head": "Exercice 3 — Limites et asymptotes",
       "id": "exo3",
-      "body": "On considère h(x) = (2x² + 3)/(x − 1)\n\nQuestions :\n1. Calculer la limite en +∞ et −∞.\n2. Déterminer les asymptotes horizontales et verticales.\n3. Étudier le signe de h'(x)."
+      "body": "On considère la fonction \\( h \\) définie par :\n\n\\[\nh(x) = \\frac{2x^2 + 3}{x - 1}\n\\]\n\nQuestions :\n\n1. Calculer la limite de \\( h(x) \\) en \\( +\\infty \\) et en \\( -\\infty \\).\n\n2. Déterminer les asymptotes verticales et horizontales.\n\n3. Étudier le signe de \\( h'(x) \\)."
     }
   ],
+
   "solution": [
     {
       "head": "Corrigé Exercice 1",
       "problemId": "exo1",
-      "body": "f’(x) = 3x² − 3\n\nf’(x) = 3(x − 1)(x + 1)\n\nSigne :\n- positive si x < −1 ou x > 1\n- négative si −1 < x < 1\n\nVariations :\nf croît sur ]−∞ ; −1] et [1 ; +∞[\nf décroît sur [−1 ; 1]\n\nExtremums :\nMaximum local en x = −1\nMinimum local en x = 1\n\nSolutions graphiques :\nx ≈ −1,9 ; x ≈ 0,3 ; x ≈ 1,6"
+      "body": "Dérivée :\n\n\\[\nf'(x) = 3x^2 - 3 = 3(x - 1)(x + 1)\n\\]\n\nSigne de \\( f'(x) \\) :\n\n• \\( f'(x) > 0 \\) si \\( x < -1 \\) ou \\( x > 1 \\)\n\n• \\( f'(x) < 0 \\) si \\( -1 < x < 1 \\)\n\nVariations :\n\n• \\( f \\) est croissante sur \\( ]-\\infty , -1] \\) et \\( [1 , +\\infty[ \\)\n\n• \\( f \\) est décroissante sur \\( [-1 , 1] \\)\n\nExtremums :\n\n• Maximum local en \\( x = -1 \\)\n\n• Minimum local en \\( x = 1 \\)\n\nSolutions graphiques :\n\n\\[\nx \\approx -1{,}9 \\quad ; \\quad x \\approx 0{,}3 \\quad ; \\quad x \\approx 1{,}6\n\\]"
     },
     {
       "head": "Corrigé Exercice 2",
       "problemId": "exo2",
-      "body": "g'(x) = 4x³ − 8x = 4x(x² − 2)\n\nSigne :\n- g'(x) > 0 pour x < −√2 et x > 0\n- g'(x) < 0 pour −√2 < x < 0 et 0 < x < √2\n\nMaximum et minimum locaux :\nMaximum local en x = −√2\nMinimum local en x = 0\nMaximum local en x = √2\n\nGraphique : points critiques à x = −√2, 0, √2"
+      "body": "Dérivée :\n\n\\[\ng'(x) = 4x^3 - 8x = 4x(x^2 - 2)\n\\]\n\nSigne de \\( g'(x) \\) :\n\n• \\( g'(x) > 0 \\) pour \\( x < -\\sqrt{2} \\) et \\( x > 0 \\)\n\n• \\( g'(x) < 0 \\) pour \\( -\\sqrt{2} < x < 0 \\) et \\( 0 < x < \\sqrt{2} \\)\n\nExtremums locaux :\n\n• Maximum local en \\( x = -\\sqrt{2} \\)\n\n• Minimum local en \\( x = 0 \\)\n\n• Maximum local en \\( x = \\sqrt{2} \\)\n\nPoints critiques :\n\n\\[\nx = -\\sqrt{2} ,\\; 0 ,\\; \\sqrt{2}\n\\]"
     },
     {
       "head": "Corrigé Exercice 3",
       "problemId": "exo3",
-      "body": "Limites :\nlim x→+∞ h(x) = lim (2x² + 3)/(x − 1) = +∞\nlim x→−∞ h(x) = −∞\n\nAsymptotes :\n- verticale : x = 1\n- horizontale : aucune\n\nDérivée :\nh'(x) = (4x(x−1) − (2x²+3))/(x−1)² = (2x² − 4x − 3)/(x−1)²\n\nSigne de h'(x) permet d'étudier les variations."
+      "body": "Limites :\n\n\\[\n\\lim_{x \\to +\\infty} h(x) = +\\infty\n\\]\n\n\\[\n\\lim_{x \\to -\\infty} h(x) = -\\infty\n\\]\n\nAsymptotes :\n\n• Asymptote verticale : \\( x = 1 \\)\n\n• Aucune asymptote horizontale\n\nDérivée :\n\n\\[\nh'(x) = \\frac{4x(x - 1) - (2x^2 + 3)}{(x - 1)^2} = \\frac{2x^2 - 4x - 3}{(x - 1)^2}\n\\]\n\nL’étude du signe de \\( h'(x) \\) permet de déterminer les variations de \\( h \\)."
     }
   ]
+},
+{
+ "title": "Fonctions et courbes",
+ "matter": "Math",
+ "contry": "Congo 🇨🇬",
+ "level": "normale",
+ "id": "CG-FCT-GRAPH",
+ "problem": [
+  {
+   "head": "Exercice — Étude graphique",
+   "id": "exo1",
+   "body": "On considère la fonction : $$f(x)=x^2-3x+1$$\n\n1. Calculer $f(0)$.\n\n2. Calculer $f(2)$.\n\n3. Étudier le sens de variation.\n\n4. Observer la courbe et déterminer le minimum.",
+   "plot": "x*x-3*x+1"
+  },
+  {
+   "head": "Exercice — Fonction trigonométrique",
+   "id": "exo2",
+   "body": "On considère : $$f(x)=\\sin(x)$$\n\n1. Calculer $f(0)$.\n\n2. Calculer $f(\\pi/2)$.\n\n3. Déterminer la période.\n\n4. Observer la courbe."
+
+  }
+ ],
+ "solution": [
+  {
+   "head": "Corrigé 1",
+   "problemId": "exo1",
+   "body": "$$f(0)=1$$\n\n$$f(2)=4-6+1=-1$$\n\nLa fonction est une parabole.\n\nMinimum au sommet."
+  },
+  {
+   "head": "Corrigé 2",
+   "problemId": "exo2",
+   "body": "$$f(0)=0$$\n\n$$f(\\pi/2)=1$$\n\nPériode : $$2\\pi$$",
+   "plot": "Math.exp(x) - x + 1"
+  }
+ ]
+},
+{
+ "title": "Géométrie avancée — Test moteur",
+ "matter": "Math",
+ "contry": "Congo 🇨🇬",
+ "level": "test",
+ "id": "CG-GEO-ENGINE",
+
+ "problem": [
+  {
+   "head": "Exercice 1 — Observation",
+   "id": "exo1",
+   "body": "On observe une figure composée d’un triangle et d’un cercle.\n\n1. Identifier le triangle.\n\n2. Identifier le cercle.\n\n3. Observer le centre du repère."
+  },
+  {
+   "head": "Exercice 2 — Analyse",
+   "id": "exo2",
+   "body": "Une ellipse et des vecteurs sont ajoutés.\n\n1. Observer l’ellipse.\n\n2. Identifier les vecteurs.\n\n3. Que représente la courbe bleue ?"
+  }
+ ],
+
+ "solution": [
+  {
+   "head": "Corrigé — Figure complète",
+   "problemId": "exo1",
+   "body": "On observe :\n\n- Un triangle ABC\n- Un cercle centré en O\n- Une ellipse\n- Des vecteurs\n- Une courbe trigonométrique\n\nCette figure sert uniquement à tester le moteur graphique.",
+
+   "geo": {
+    "objects": [
+
+     { "type": "point", "name": "A", "label": "A", "x": -3, "y": -2 },
+     { "type": "point", "name": "B", "label": "B", "x": 3, "y": -2 },
+     { "type": "point", "name": "C", "label": "C", "x": 0, "y": 3 },
+
+     { "type": "segment", "from": "A", "to": "B", "label": "AB" },
+     { "type": "segment", "from": "B", "to": "C", "label": "BC" },
+     { "type": "segment", "from": "C", "to": "A", "label": "CA" },
+
+     { "type": "circle", "center": [0, 0], "r": 4, "label": "(C)" },
+
+     { "type": "vector", "from": [0, 0], "to": [2, 2], "label": "v1" },
+     { "type": "vector", "from": [0, 0], "to": [-2, 1], "label": "v2" },
+
+     { "type": "ellipse", "x": 0, "y": 0, "rx": 5, "ry": 2, "rotation": 0, "label": "(E)" },
+
+     { "type": "curve", "func": "Math.sin(x)", "label": "(p)" }
+
+    ]
+   }
+  }
+ ]
+},
+{
+ "title": "Géométrie — Transformations et repérage (Type BAC)",
+ "matter": "Math",
+ "country": "Congo 🇨🇬",
+ "level": "Terminale",
+ "id": "CG-GEO-BAC-01",
+
+ "problem": [
+
+  {
+   "head": "Exercice 1 — Transformations planes",
+   "id": "exo1",
+   "body":
+"On considère la figure ci-dessous.\n\n1. Identifier la transformation f qui transforme le point A en B.\n\n2. Déterminer l’image du point C par la transformation f.\n\n3. On considère une transformation g telle que g(B)=C.\n   a) Identifier la nature de g.\n   b) Donner l’image du point A par g.\n\n4. Déterminer la transformation composée h = g ∘ f.\n\n5. Quelle est l’image du triangle ABC par la transformation h ?"
+  },
+
+  {
+   "head": "Exercice 2 — Vecteurs et figures invariantes",
+   "id": "exo2",
+   "body":
+"On considère la figure suivante.\n\n1. Déterminer les coordonnées des vecteurs u et v.\n\n2. Montrer que les points A, D et E sont alignés.\n\n3. Identifier la transformation t associée au vecteur u.\n\n4. Donner l’image du cercle (C) par la transformation t.\n\n5. La courbe (p) est-elle invariante par la transformation t ? Justifier."
+  }
+
+ ],
+
+ "solution": [
+
+  {
+   "head": "Corrigé — Exercice 1",
+   "problemId": "exo1",
+   "body":
+"La figure représente un triangle soumis à des transformations planes.\nLes positions relatives permettent d’identifier une translation suivie d’une rotation.\nLa composition des transformations permet de déterminer l’image globale de la figure.",
+
+   "geo": {
+    "objects": [
+
+     { "type": "point", "name": "A", "label": "A", "x": -4, "y": -1 },
+     { "type": "point", "name": "B", "label": "B", "x": 0, "y": 1 },
+     { "type": "point", "name": "C", "label": "C", "x": -2, "y": 4 },
+
+     { "type": "segment", "from": "A", "to": "B", "label": "AB" },
+     { "type": "segment", "from": "B", "to": "C", "label": "BC" },
+     { "type": "segment", "from": "C", "to": "A", "label": "CA" },
+
+     { "type": "vector", "from": [-4, -1], "to": [0, 1], "label": "f" },
+
+     { "type": "vector", "from": [0, 1], "to": [-2, 4], "label": "g" },
+
+     { "type": "circle", "center": [0, 1], "r": 3, "label": "(C₁)" }
+
+    ]
+   }
+  },
+
+  {
+   "head": "Corrigé — Exercice 2",
+   "problemId": "exo2",
+   "body":
+"La figure met en évidence des vecteurs, un cercle et une courbe.\nElle permet d’étudier l’effet d’une translation sur différentes figures géométriques.",
+
+   "geo": {
+    "objects": [
+
+     { "type": "point", "name": "A", "label": "A", "x": -3, "y": -2 },
+     { "type": "point", "name": "D", "label": "D", "x": 1, "y": -1 },
+     { "type": "point", "name": "E", "label": "E", "x": 5, "y": 0 },
+
+     { "type": "segment", "from": "A", "to": "D", "label": "AD" },
+     { "type": "segment", "from": "D", "to": "E", "label": "DE" },
+
+     { "type": "vector", "from": [0, 0], "to": [4, 1], "label": "u" },
+     { "type": "vector", "from": [0, 0], "to": [2, -2], "label": "v" },
+
+     { "type": "circle", "center": [1, -1], "r": 2, "label": "(C)" },
+
+     { "type": "curve", "func": "0.25*x*x-1", "label": "(p)" },
+
+     { "type": "ellipse", "x": 2, "y": 1, "rx": 4, "ry": 2, "rotation": 0.3, "label": "(E)" }
+
+    ]
+   }
+  }
+
+ ]
 }
 ]
