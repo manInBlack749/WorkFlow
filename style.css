@@ -1,30 +1,48 @@
 /* ====== RESET & GLOBAL ====== */
-
+:root {
+    --header-h: 80px;
+    --nav-h: 70px;
+}
 html, body {
-    width: 100%;
+    width: 100vw;
     height: 100%;
     margin: 0;
     font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     box-sizing: border-box;
-    overflow-x: hidden; /* juste horizontal */
-    overflow-y: hidden; /* vertical limité au container */
-    background-color: #fff;
+    overflow-x: hidden;
+    background-color:#FBFBF9;
 }
 
 /* ====== HEADER ====== */
-#en-t { 
+#layer{
+    position:fixed;
+    top:0;
+    width:100vw;
+    height:25vh;
+    z-index:500;
+    background: linear-gradient(rgba(191, 185, 185, 0.8) 0%, rgba(255, 255, 255, 0) 90%);
+}
+#layer {
+    transition: height 0.35s ease, opacity 0.35s ease;
+}
+
+#en-t {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 6vh;
+    height: 14vh;
     display: flex;
-    justify-content: space-between;
+    flex-direction:column;
+    justify-content: center;
     align-items: center;
     padding: 2vh 2vw;
-    z-index: 100;
-    border-bottom: 3px solid #F2F2F2;
-    background-color: #fff;
+    z-index: 1000;
+    background: transparent;
+}
+
+#en-t > * + * {
+    margin-top:1vh;
 }
 
 /* ====== FOOTER / NAV ====== */
@@ -37,7 +55,7 @@ html, body {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    z-index: 100;
+    z-index: 1000;
     border-top: 3px solid #F2F2F2;
     background-color: #fff;
     padding: 0.5vh 2vw;
@@ -45,35 +63,59 @@ html, body {
 
 /* ====== CONTAINER ====== */
 #container {
-    position: absolute;   /* pour se placer entre header et nav */
-    top: 6vh;            /* juste sous header */
-    bottom: 8vh;          /* juste au-dessus de la nav */
+    position: absolute;
+    top:14vh;
+    bottom:8vh;
     left: 0;
     width: 100%;
-    height:86vh;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
     display: flex;
     flex-direction: column;
     align-items: center;
-    overflow-y: auto;     /* scroll uniquement ici */
-    padding: 2vh 2vw;
-    padding-bottom: 10vh;
+
+    padding: 3vh 2vw; /* marge de sécurité */
+    box-sizing: border-box;
+    will-change: auto;
+}
+.lil-container {
+    width: 100%;
+    max-width: 100%;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    padding: 2vh 0vw;
     box-sizing: border-box;
 }
-
-/* espace entre éléments du container */
-#container > * + * {
-    margin-top: 2vh;
+#container>*+* {
+    margin-top: 3vh;
+}
+.lil-container >*+*{
+    margin-top:2vh;
+}
+/* Anim de base pour toutes les cards */
+.lil-container>* {
+    opacity: 0.9;
+    transform: translateY(0);
+    transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Au focus / hover / active */
+.lil-container>*:hover,
+.lil-container>*:focus {
+    transform: translateY(-5px) scale(1.02);
+    opacity: 1;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
 /* ====== SCROLLBAR ====== */
 #container::-webkit-scrollbar {
-    width: 6px;
+    background-color:#000;
+    width:0.9px;
 }
-#container::-webkit-scrollbar-thumb {
-    background-color: #DEDEDE;
-    border-radius: 3px;
-}
-
 /* ====== BOUTONS & ICONES ====== */
 .but {
     background-color: #fff;
@@ -86,25 +128,29 @@ html, body {
 .icon {
     width: 4vw;
     max-width: 48px;
-    height: 4vw;
+    height: 4vw; 
     max-height: 48px;
 }
 
-#logo {
-    flex-grow: 10;
-    font-size: 7vw;
-    font-weight: 600;
-}
-
-.flow {
-    -webkit-text-stroke: 1px black;
-    color: #fff;
-}
-
-.search, .param {
+.param {
     flex-grow: 1;
+    background-color: transparent;
 }
-
+.search-bar{
+    width:80vw;height:7vh;
+    padding:0.05vh 2vw;
+    border-radius:20px;
+    border:none;font-size:3.5vw;
+    background-color:#fff;
+    border:none; color: #000;
+    display:flex; flex-direction:row;
+    align-items: center; 
+    justify-content:space-between;
+}
+.search{
+    flex-grow:5; padding:2vw;
+    height:5vh;border:none;
+}
 /* ====== NAVIGATION ====== */
 .nav {
     width: 15vw;
@@ -118,7 +164,7 @@ html, body {
     font-size: 10px;
     border: none;
     background-color: #fff;
-    opacity: 0.3;
+    opacity: 0.5;
 }
 
 .nav > * + * {
@@ -132,7 +178,7 @@ html, body {
     height: 7vw;
     max-height: 75px;
     border-radius: 50%;
-    border: 0.4vw solid #DEDEDE;
+    border: 0.4vw solid #f2f2f2;
     border-top: 0.4vw solid #000;
     margin: auto;
     display: none;
@@ -143,18 +189,31 @@ html, body {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
-
+#matter{
+    display:flex;flex-direction:row;
+    align-items: center;
+}
+#matter >*+* {
+    margin-left:2vw;
+}
+.mat{width:15vw;height:5vh;
+     border-radius:15px;
+     box-sizing:border-box;
+     font-size:3vw; font-weight:600;
+}
 /* ====== EXERCICES ====== */
 .exo {
     width: 90%;
     height: 15vh;
-    border: 5px solid #F2F2F2;
+    background-color: #fff;
+    border:2px solid #f2f2f2;
     border-radius: 15px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     padding: 1vh 1vw;
     flex-shrink: 0;
+    
 }
 
 .title {
@@ -175,24 +234,45 @@ html, body {
 }
 
 .contry { flex-grow: 8; padding-left: 1vw; }
-.level {  opacity: 0.3; flex-grow: 1; }
+.level {  
+   opacity: 0.3; flex-grow: 1; 
+   border-radius:8px; height:4vh;
+   display:flex;justify-content:center;
+   align-items:center; font-weight:500;
+}
 .option { flex-grow: 1; }
 
 /* ====== OUVERTURE D’EXERCICE ====== */
+body.exo-open #en-t,
+body.exo-open #nav-b {
+    opacity: 0;
+    pointer-events: none;
+}
+body.exo-open #container{
+    top:0;
+    bottom:0;
+}
+body.exo-open #layer{
+    height:10vh;
+    opacity:0.6;
+}
 #exit {
-    background-color: #000;
+    position:fixed;
+    top:1vh; left:3vw;
+    z-index:1000;
+    background-color: #fff;
     width: 9vw;
     max-width: 90px;
     height: 9vw;
     max-height: 90px;
-    font-size: 5vw;
-    color: #fff;
+    font-size: 5vw; font-weight:600;
+    color: #000;
     border-radius: 50%;
-    border: 0.4vw solid #000;
     display: none;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+    border:none;
 }
 
 .single-exo {
@@ -201,11 +281,13 @@ html, body {
     min-height: 20vh;
     flex-shrink: 0;
     padding: 1vw;
+    white-space: pre-line;
 }
 
 .exo-title {
     font-size: 20vw;
-    background-color: #F2F2F2;
+    background-color: #fff;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
     border-radius: 3vw;
     width: 90%;
     min-height: 25vh;
@@ -213,18 +295,200 @@ html, body {
     font-weight: bold;
     margin-bottom: 5vh;
 }
-
-.exo-head { font-size: 5vw; font-weight: 600; }
+.exo-head { font-size: 5vw; font-weight: 600;
+    align-self: center;
+    
+}
 
 .single-sol {
-    width: 80%;min-height: 40vh;
-    background-color: #F2F2F2;
+    width: 90vw;min-height: 40vh;
+    background-color: #fff;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
     border-radius: 3vw;
     margin-bottom: 5vh;
     padding: 2vw;
     display: none;
+    flex-direction:column; 
+    align-items:center;
+    justify-content: center
+}
+.sol-content{
+    width:85vw;min-height:40vh;
+    position: relative;
+    padding:10px;
+}
+.single-sol >*{
+    min-width: 0;
+}
+/* wrapper fixe */
+.sol-scroll{
+    position:relative;
+    width:90vw;
+    overflow:hidden;
+    min-height:40vh;
 }
 
+/* contenu scroll */
+.sol-content{
+    overflow-x:auto;
+    overflow-y:hidden;
+    padding:10px;
+    scroll-behavior:smooth;
+}
+
+/* flous FIXES */
+.sol-scroll::before,
+.sol-scroll::after{
+    content:"";
+    position:absolute;
+    top:0;
+    width:40px;
+    height:100%;
+    pointer-events:none;
+    z-index:350;
+    opacity:0;
+    transition:opacity .25s;
+}
+
+/* gauche */
+.sol-scroll::before{
+    left:0;
+    background:linear-gradient(to right,#fff,transparent);
+}
+
+/* droite */
+.sol-scroll::after{
+    right:0;
+    background:linear-gradient(to left,#fff,transparent);
+}
+
+/* afficher flou quand scroll possible */
+.sol-scroll.show-left::before{opacity:1;}
+.sol-scroll.show-right::after{opacity:1;}
+.scroll {
+    position: relative;
+    width: 40px;
+    height: 10px;
+    background: rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
+    margin-top: 8px;
+}
+
+.indice {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateY(1%);
+    width: 10px;
+    height: 10px;
+    background: black;
+    border-radius: 50%;
+    transition: transform 0.08s linear;
+}
+mjx-container {
+    max-width: 100%;
+}
+/* Effet de focus/hover sur les cards */
+.exo, .lil-container > * {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.exo:focus, .exo:hover,
+.lil-container > *:focus, .lil-container > *:hover {
+    transform: scale(1.03); /* légère augmentation */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15); /* ombre douce */
+    outline: none; /* supprime le focus browser par défaut */
+}
+.graph-box {
+    position: relative;
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    flex-shrink: 0;
+    align-self:center;
+    border:3px solid #F2F2F2;
+    border-radius:20px;
+    padding:10px;
+}
+
+.graph {
+    width: 300px;
+    height: 260px;
+    background: #fff;
+    border-radius: 20px;
+}
+
+/* layer flou */
+.graph-flot {
+    position: absolute;
+    bottom: 0;
+    width: 300px;
+    height: 45%;
+    background: linear-gradient(
+             rgba(0, 0, 0, 0) 0%,
+             rgba(255, 255, 255, 0.85) 40%);
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 0 14px 14px;
+}
+
+/* bouton */
+.graph-btn {
+    background: #000;
+    color: #fff;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 20px;
+    font-size: 3vw;
+    font-weight:500;
+}
+.full-graph {
+    position: fixed;
+    inset: 0;
+    background: #000000E6;
+    backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    animation: fadeIn 0.1s ease;
+}
+
+.full-box {
+    width: 80vw;
+    height: 80vw;
+    background: #fff;
+    border-radius: 20px;
+    padding: 10px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 20px #747FAA;
+}
+
+
+.close-full {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 22px;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+@keyframes fadeIn {
+    from{
+        opacity:0.5;
+        transform:scale(0.9);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
 /* ====== BOUTONS ====== */
 .corrige, .apply {
     width: 20vw;
@@ -233,14 +497,21 @@ html, body {
     min-height: 50px;
     border-radius: 20px;
     background-color: #000;
-    border: 3px solid #000;
+    border:none;
+    border-bottom:3px solid transparent;
     font-weight: 500;
     color: #fff;
     font-size: 50px;
     flex-shrink: 0;
-    transition: 0.2s ease;
+    transition: transform 0.12s ease,
+    border 0.12s ease,
+    background-color 0.15s ease,
+    color 0.15s ease;
 }
-
+.corrige:active {
+    transform: translateY(3px);
+    border-bottom: 3px solid #2E2F327D;
+}
 /* ====== FICHES ====== */
 .test-block {
     width: 100%;
@@ -262,7 +533,8 @@ html, body {
     flex-direction: column;
     align-items: center; 
     padding: 2vh; 
-    justify-content: center; }
+    justify-content: center;
+    box-sizing:border-box;}
 
 .valider { width: 50%; height: 50px; font-size: 1.2rem; font-weight:500;background-color: #000; color: #fff; border-radius: 20px; flex-shrink: 0; box-sizing:border-box;}
 
@@ -373,6 +645,7 @@ html, body {
     .propos{ font-size: 4vw; width: 80%; }
     .corrige, .apply{ width: 30vw; height:50px; font-size: 1.2rem; }
 }
+
 @media screen and (min-height:800px){
     .exo{height:12vh;}
     .exo-title{min-height:20vh;}
