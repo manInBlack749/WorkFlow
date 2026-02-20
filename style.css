@@ -67,7 +67,7 @@ html, body {
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 6vh;
+    height: 7vh;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -82,7 +82,7 @@ html, body {
 #container {
     position: absolute;
     top:14vh;
-    bottom:6vh;
+    bottom:7vh;
     left: 0;
     width: 100%;
 
@@ -155,7 +155,7 @@ html, body {
     background-color: transparent;
 }
 .search-bar{
-    width:80vw;height:7vh;
+    width:80vw;height:6vh;
     padding:0.05vh 2vw;
     border-radius:20px;
     border:none;font-size:3.5vw;
@@ -678,8 +678,8 @@ mjx-container {
 }
 
 @media screen and (min-height:800px){
-    #nav-b{height:5vh}
-    #container{bottom:5vh;}
+    #nav-b{height:6vh}
+    #container{bottom:6vh;}
     .exo{height:12vh;}
     .exo-title{min-height:20vh;}
     .single-sol{min-height:30vh;}
