@@ -10,8 +10,9 @@ const nav_b= document.getElementById("nav-b");
 const matter=d.getElementById("matter")
 const loader=d.getElementById('loader')
 const exit=d.getElementById('exit')
+const reload=d.getElementById('reload')
 /*button du menu*/
-const main=d.querySelectorAll('.nav')
+const main=d.querySelectorAll('.main')
 const icon=d.querySelectorAll('.main-icon')
 let current_mat=null
 /**** sous container****/
@@ -83,6 +84,16 @@ const fillInfo= ()=>{
       let img= new Image("explose.png")
       let message=d.createElement("div")
       
+      let dark_but=d.createElement('button')
+      let dark_img = document.createElementNS("http://www.w3.org/2000/svg", "svg")
+      let use = document.createElementNS("http://www.w3.org/2000/svg", "use")
+      use.setAttribute("href","#icon-sun")
+      
+      dark_but.className="dark-but"
+      dark_img.className="icon"
+      dark_img.append(use)
+      dark_but.append(dark_img)
+      container.append(dark_but)
       
       img.src="emoji/explose.png"
       message.innerText="cette section n'est pas dispo pour l'instant"
@@ -95,6 +106,13 @@ const fillInfo= ()=>{
         container.append(img,message)
         }
       }
+      dark_but.addEventListener("click",()=>{
+        if(!d.body.classList.contains("dark"))
+           d.body.classList.add("dark")
+        else {
+           d.body.classList.remove("dark")
+        }
+      })
 }
  /***generation des fiches*****/
 const fillFiche= async () => {
@@ -108,7 +126,8 @@ const fillFiche= async () => {
       let state = d.createElement('div')
       let date = d.createElement('div')
       let plus_b = d.createElement('button')
-      let plus = d.createElement('img')
+      let plus = document.createElementNS("http://www.w3.org/2000/svg", "svg")
+      let use = document.createElementNS("http://www.w3.org/2000/svg", "use")
       /*initialisation*/
       const data = await getData("data/fiche.json")
       
@@ -119,7 +138,7 @@ const fillFiche= async () => {
       
       state.innerText =data["apply"].length.toString()+ " questions"
       date.innerText =data["date"]
-      plus.src = 'icon/menu-dots-vertical.svg'
+      use.setAttribute("href","#icon-dot")
       /*style*/
       fiche_block.classList.add('exo')
       block_1.classList.add('title')
@@ -129,6 +148,7 @@ const fillFiche= async () => {
       plus_b.classList.add('but')
       plus.classList.add('icon', 'option')
       /*imbrication*/
+      plus.append(use)
       plus_b.appendChild(plus)
       block_2.append(state, date, plus_b)
       fiche_block.append(block_1, block_2)
@@ -154,7 +174,8 @@ const fillExo= async () => {
       let contry = d.createElement('div')
       let level = d.createElement('div')
       let plus_b = d.createElement('button')
-      let plus = d.createElement('img')
+      let plus = document.createElementNS("http://www.w3.org/2000/svg", "svg")
+      let use = document.createElementNS("http://www.w3.org/2000/svg", "use")
       /*initialisation*/
       const data= await getData("data/exo.json")
       console.log(data)
@@ -165,7 +186,7 @@ const fillExo= async () => {
       
       contry.innerText =data["contry"]
       level.innerText = data["level"]
-      plus.src = 'icon/menu-dots-vertical.svg'
+      use.setAttribute("href", "#icon-dot")
       /*style*/
       exo_block.classList.add('exo')
       block_1.classList.add('title')
@@ -176,6 +197,7 @@ const fillExo= async () => {
       plus_b.classList.add('but')
       plus.classList.add('icon', 'option')
      /*imbrication*/
+      plus.appendChild(use)
       plus_b.appendChild(plus)
       block_2.append(contry, level, plus_b)
       exo_block.append(block_1, block_2)
@@ -199,6 +221,8 @@ const openExo=(data)=>{
       const loadId=++currentLoadId
       //creation 
       exit.style.display="flex"
+      reload.style.display="none"
+      
       let title= d.createElement('div') 
       let corrige=d.createElement('button')
       let corriges= []
@@ -1277,51 +1301,78 @@ loadTest(currentTest[index++])
 }
 
 /****bouton du menu******/
-let current=null
-for(let i=0; i<main.length ; i++){
-  let elements=12
-   main[i].addEventListener('click',async()=>{
-     click.currentTime = 0; click.play()
-     //style
-     anim_menu(main[current],icon[current],2)
-     anim_menu(main[i],icon[i],1)
-     current=i
-     //fonction
-     reset()
-     currentLoadId++
-     if(main[i].id==="user-b"){
-       fillInfo()
-     }else if(main[i].id==='exo-b'){
-          container.append(e_container)
-          current_container=e_container
-          for (let j = 0; j < elements; j++){
-               fillExo()
-          }
-     }else if(main[i].id==='fiche-b'){
-           container.append(f_container)
-           current_container=f_container
-          for (let j = 0; j < elements; j++){
-            fillFiche()
-          }
-         
-     }
-   })
-      
+let current = null;
+const elements = 12;
+
+for (let i = 0; i < main.length; i++) {
+  main[i].addEventListener("click", async () => {
+    click.currentTime = 0;
+    click.play();
+    
+    // change les icônes
+    if (current !== null) {
+      setIcon(main[current].id, main[current].querySelector("use").getAttribute("href").replace("#",""), false);
+    }
+    setIcon(main[i].id, main[i].querySelector("use").getAttribute("href").replace("#",""), true); // nouvelle icône active
+    current = i;
+    
+    // reset et nouveau chargement
+    reset();
+    
+    // afficher le bon container
+    if (main[i].id === "user-b") {
+      fillInfo();
+    } else if (main[i].id === "exo-b") {
+      container.append(e_container);
+      current_container = e_container;
+      for (let j = 0; j < elements; j++) fillExo();
+    } else if (main[i].id === "fiche-b") {
+      container.append(f_container);
+      current_container = f_container;
+      for (let j = 0; j < elements; j++) fillFiche();
+    }
+  });
 }
-const anim_menu=(main,icon,i)=>{
-      if (i === 1) {
-         main.style.opacity = "1"
-         icon.src = icon.src.replace('icon', 'full-icon')
-      }else if(main){
-         main.style.opacity = "0.5"
-         icon.src = icon.src.replace('full-icon', 'icon')
+function setIcon(buttonId, iconId, i = true) {
+  const btn = document.getElementById(buttonId);
+  if (!btn) return;
+  
+  // Ajuste le href selon le paramètre i
+  let finalId = iconId;
+  if (i) {
+    // remplace i- par icon-
+    finalId = iconId.replace(/^i-/, "icon-");
+  } else {
+    // remplace icon- par i-
+    finalId = iconId.replace(/^icon-/, "i-");
+  }
+  
+  // Vérifie s'il y a déjà un <svg><use></use></svg>
+  let svg = btn.querySelector("svg");
+  if (!svg) {
+    svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    svg.classList.add("icon");
+    const use = document.createElementNS("http://www.w3.org/2000/svg", "use");
+    use.setAttribute("href", `#${finalId}`);
+    svg.appendChild(use);
+    btn.prepend(svg); // ajoute avant le texte du bouton
+  } else {
+    const use = svg.querySelector("use");
+    if (use) {
+      use.setAttribute("href", `#${finalId}`);
+    } else {
+      const newUse = document.createElementNS("http://www.w3.org/2000/svg", "use");
+      newUse.setAttribute("href", `#${finalId}`);
+      svg.appendChild(newUse);
+    }
+  }
 }
-}
+
 /*****Reset*******/
 const reset = () => {
   container.innerHTML=""
   exit.style.display = "none"
-  container.append(loader, exit)
+  container.append(loader, exit,reload)
   current_container.scrollTop = 0
 }
 const context_reset=(i)=>{
@@ -1365,9 +1416,13 @@ const getData= async(route,id)=>{
 exit.onclick=()=>{
      click.currentTime = 0;click.play()
      exit.style.display="none"
+     reload.style.display="flex"
      context_reset(1)
      if(main[current] !== null)
      main[current].click()
+}
+reload.onclick=()=>{
+  main[current].click()
 }
 for (let i of main) {
   if (i.id === "exo-b")
@@ -1386,7 +1441,7 @@ Array.from(matter.children).map(c=>{
 
       current_mat=c
       current_mat.style.color="#fff"
-      current_mat.style.backgroundColor="#000"
+      current_mat.style.backgroundColor="var(--bg-mat)"
       current_mat.style.border="none"
     })
     if(c.textContent==="Tous")
