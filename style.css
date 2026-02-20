@@ -2,6 +2,20 @@
 :root {
     --header-h: 80px;
     --nav-h: 70px;
+    --bg-main: #FBFBF9;
+    --bg-card: #ffffff;
+    --bg-soft: #f2f2f2;
+    --bg-search:#fff;
+    
+    --text-main: #000;
+    --text-soft: #666;
+    
+    --border: #f2f2f2;
+    --nav-bg: #ffffff;
+    
+    --accent: #000;
+    --bg-mat:#000;
+    --flot:#fff;
 }
 html, body {
     width: 100vw;
@@ -10,7 +24,9 @@ html, body {
     font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     box-sizing: border-box;
     overflow-x: hidden;
-    background-color:#FBFBF9;
+    background-color:var(--bg-main);
+    color:var(--text-main);
+    transition:background-color 0.01s ease;
 }
 
 /* ====== HEADER ====== */
@@ -18,7 +34,7 @@ html, body {
     position:fixed;
     top:0;
     width:100vw;
-    height:25vh;
+    height:20vh;
     z-index:500;
     background: linear-gradient(rgba(191, 185, 185, 0.8) 0%, rgba(255, 255, 255, 0) 90%);
 }
@@ -51,13 +67,14 @@ html, body {
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 8vh;
+    height: 6vh;
     display: flex;
     justify-content: space-around;
     align-items: center;
     z-index: 1000;
-    border-top: 3px solid #F2F2F2;
-    background-color: #fff;
+    border-top: 3px solid var(--border);
+    background-color: var(--nav-bg);
+    color:var(--text-main);
     padding: 0.5vh 2vw;
 }
 
@@ -65,7 +82,7 @@ html, body {
 #container {
     position: absolute;
     top:14vh;
-    bottom:8vh;
+    bottom:6vh;
     left: 0;
     width: 100%;
 
@@ -118,7 +135,7 @@ html, body {
 }
 /* ====== BOUTONS & ICONES ====== */
 .but {
-    background-color: #fff;
+    background-color: transparent;
     display: flex;
     border: none;
     justify-content: center;
@@ -130,6 +147,7 @@ html, body {
     max-width: 48px;
     height: 4vw; 
     max-height: 48px;
+    color:#000;
 }
 
 .param {
@@ -141,7 +159,7 @@ html, body {
     padding:0.05vh 2vw;
     border-radius:20px;
     border:none;font-size:3.5vw;
-    background-color:#fff;
+    background-color:var(--bg-search);
     border:none; color: #000;
     display:flex; flex-direction:row;
     align-items: center; 
@@ -150,6 +168,7 @@ html, body {
 .search{
     flex-grow:5; padding:2vw;
     height:5vh;border:none;
+    background:transparent;
 }
 /* ====== NAVIGATION ====== */
 .nav {
@@ -163,8 +182,8 @@ html, body {
     justify-content: center;
     font-size: 10px;
     border: none;
-    background-color: #fff;
-    opacity: 0.5;
+    background-color: var(--nav-bg);
+    color:var(--text-main);
 }
 
 .nav > * + * {
@@ -178,8 +197,8 @@ html, body {
     height: 7vw;
     max-height: 75px;
     border-radius: 50%;
-    border: 0.4vw solid #f2f2f2;
-    border-top: 0.4vw solid #000;
+    border: 0.4vw solid var(--border);
+    border-top: 0.4vw solid var(--text-main);
     margin: auto;
     display: none;
     animation: loading 1s infinite alternate ease;
@@ -200,13 +219,26 @@ html, body {
      border-radius:15px;
      box-sizing:border-box;
      font-size:3vw; font-weight:600;
+     background-color:#fff;
+}
+#reload{
+    position:fixed;
+    bottom:14vh; right:3vw;
+    z-index:1000; border:none;
+    background-color: #fff;
+    width: 9vw; max-width: 90px;    
+    height: 9vw;max-height: 90px;
+    border-radius: 50%; display:flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 /* ====== EXERCICES ====== */
 .exo {
     width: 90%;
     height: 15vh;
-    background-color: #fff;
-    border:2px solid #f2f2f2;
+    background-color: var(--bg-card);
+    border:2px solid var(--border);
     border-radius: 15px;
     display: flex;
     flex-direction: column;
@@ -286,7 +318,7 @@ body.exo-open #layer{
 
 .exo-title {
     font-size: 20vw;
-    background-color: #fff;
+    background-color: var(--bg-card);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
     border-radius: 3vw;
     width: 90%;
@@ -302,7 +334,7 @@ body.exo-open #layer{
 
 .single-sol {
     width: 90vw;min-height: 40vh;
-    background-color: #fff;
+    background-color: var(--bg-card);
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
     border-radius: 3vw;
     margin-bottom: 5vh;
@@ -353,15 +385,14 @@ body.exo-open #layer{
 /* gauche */
 .sol-scroll::before{
     left:0;
-    background:linear-gradient(to right,#fff,transparent);
+    background:linear-gradient(to right,var(--flot),transparent);
 }
 
 /* droite */
 .sol-scroll::after{
     right:0;
-    background:linear-gradient(to left,#fff,transparent);
+    background:linear-gradient(to left,var(--flot),transparent);
 }
-
 /* afficher flou quand scroll possible */
 .sol-scroll.show-left::before{opacity:1;}
 .sol-scroll.show-right::after{opacity:1;}
@@ -381,7 +412,7 @@ body.exo-open #layer{
     transform: translateY(1%);
     width: 10px;
     height: 10px;
-    background: black;
+    background: var(--text-main);
     border-radius: 50%;
     transition: transform 0.08s linear;
 }
@@ -406,7 +437,7 @@ mjx-container {
     justify-content: center;
     flex-shrink: 0;
     align-self:center;
-    border:3px solid #F2F2F2;
+    border:3px solid var(--border);
     border-radius:20px;
     padding:10px;
 }
@@ -424,14 +455,14 @@ mjx-container {
     bottom: 0;
     width: 300px;
     height: 45%;
+    display: flex;
+    align-items: center;
     background: linear-gradient(
              rgba(0, 0, 0, 0) 0%,
              rgba(255, 255, 255, 0.85) 40%);
     
-    display: flex;
-    align-items: center;
     justify-content: center;
-    border-radius: 0 0 14px 14px;
+    border-radius:20px;
 }
 
 /* bouton */
@@ -496,11 +527,11 @@ mjx-container {
     height: 30vh;
     min-height: 50px;
     border-radius: 20px;
-    background-color: #000;
+    background-color: var(--text-main);
     border:none;
     border-bottom:3px solid transparent;
-    font-weight: 500;
-    color: #fff;
+    font-weight: 600;
+    color: var(--bg-card);
     font-size: 50px;
     flex-shrink: 0;
     transition: transform 0.12s ease,
@@ -647,8 +678,75 @@ mjx-container {
 }
 
 @media screen and (min-height:800px){
+    #nav-b{height:5vh}
+    #container{bottom:5vh;}
     .exo{height:12vh;}
     .exo-title{min-height:20vh;}
     .single-sol{min-height:30vh;}
     .single-exo{min-height:18vh;}
+    #layer{
+        height:15vh;
+    }
+}
+/******* DARK MODE  ***********/
+.dark {
+    background: #0f1115;
+    --text: #ffffff;
+    --card: #1a1d24;
+}
+.dark-but{
+   border:1px solid #000;
+   transition:transform 0.02s ease;
+   bottom:14vh; right:3vw;
+   z-index:1000; border:none;
+   background-color: #fff;
+   width: 9vw; max-width: 90px;    
+   height: 9vw;max-height: 90px;
+   border-radius: 50%; display:flex;
+   align-items: center;
+   justify-content: center;
+}
+.dark-but:hover{
+   transform: scale(1.15);
+}
+body.dark{
+    --bg-main:#0F1115;
+    --bg-card:#151922;
+    --bg-soft:#1d2330;
+    --bg-search:#28282D;
+
+    --text-main:#ffffff;
+    --text-soft:#9aa3b2;
+
+    --border:#2F323A;
+    --nav-bg:#0f141c;
+
+    --accent:#ffffff;
+    --bg-mat:#28282D;
+    --flot:#151922;
+}
+body.dark #layer{
+    background:linear-gradient(
+      rgba(0, 0, 0, 0.68) 0%,
+      rgba(0, 0, 0, 0) 90%
+    );
+    backdrop-filter: blur(5px);
+}
+body.dark .level{
+    opacity:1;
+}
+body.dark .icon{
+    color:#fff;
+}
+body.dark .scroll{
+    background: #292A2DE8;
+}
+body.dark .graph-flot{
+   background: transparent;
+}
+body.dark #reload{
+   background: #151922;
+   box-shadow:
+  0 8px 20px rgba(0,0,0,0.5),
+  0 0 6px rgba(255,255,255,0.3);
 }
